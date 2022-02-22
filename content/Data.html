@@ -11,7 +11,7 @@ date: "2/21/2022"
 <p>ANES data can be found at the <a href="https://electionstudies.org/data-center/2020-time-series-study/">election survey data center</a>. The American National Election Survey is a nationwide survey in the United States taken every four years since 1948. ANES data has played a critical role in political science research over the last seventy-odd years, helping researchers examine long standing trends in the American electorate and providing insight into the ever changing zeitgeist of American politics. For instance, in their most recent 2020 survey, they implemented questions regarding sexual misconduct, voting experience, and more, all meant to capture important debates during the most recent election cycle. The survey is conducted in two parts: before and after the election.</p>
 <p>For my data, I focused on 19 main variables (out of hundreds – I will only discuss the selected few below). To clean the data, I transferred the variables of interest to a new data set and converted all values below 0 to “NA”s. The survey data is coded such that negative values correspond to some non-answer (eg. -9 = Refused (in some cases “refuse to answer” is a possible selection answer, in which case there is a positive “refuse” value), -8 = don’t know, -1 = inapplicable, etc.).</p>
 <p>The package naniar is used to convert negative values to NA values.</p>
-<p>File: <a href="/static/load_and_clean_data.R">load_and_clean_data.R</a></p>
+<p>File: <img src="/load_and_clean_data.R" alt="load_and_clean_data.R" /></p>
 <pre class="r"><code>source(here::here(&quot;static&quot;, &quot;load_and_clean_data.R&quot;), echo=TRUE)</code></pre>
 <pre><code>## 
 ## &gt; library(tidyverse)</code></pre>
