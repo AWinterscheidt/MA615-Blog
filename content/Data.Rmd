@@ -13,7 +13,7 @@ For my data, I focused on 19 main variables (out of hundreds -- I will only disc
 
 The package naniar is used to convert negative values to NA values. 
 
-File: ![load_and_clean_data.R](/load_and_clean_data.R)
+File: [load_and_clean_data.R](/load_and_clean_data.R)
 ```{r load}
 source(here::here("static", "load_and_clean_data.R"), echo=TRUE)
 ```
