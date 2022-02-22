@@ -1,0 +1,72 @@
+
+---
+title: "Data"
+author: "Abe Winterscheidt"
+date: "2/21/2022"
+---
+
+For the project in MA 615, I am interested in working with American National Election Survey Data from the 2020 election, perhaps to examine the role authoritarian values played in the electorate. Working with their historical time series data could also help us examine the rise of authoritarianism in the 21st century.
+
+ANES data can be found at the [election survey data center](https://electionstudies.org/data-center/2020-time-series-study/). The American National Election Survey is a nationwide survey in the United States taken every four years since 1948. ANES data has played a critical role in political science research over the last seventy-odd years, helping researchers examine long standing trends in the American electorate and providing insight into the ever changing zeitgeist of American politics. For instance, in their most recent 2020 survey, they implemented questions regarding sexual misconduct, voting experience, and more, all meant to capture important debates during the most recent election cycle. The survey is conducted in two parts: before and after the election.
+
+For my data, I focused on 19 main variables (out of hundreds -- I will only discuss the selected few below). To clean the data, I transferred the variables of interest to a new data set and converted all values below 0 to "NA"s. The survey data is coded such that negative values correspond to some non-answer (eg. -9 = Refused (in some cases "refuse to answer" is a possible selection answer, in which case there is a positive "refuse" value), -8 = don't know, -1 = inapplicable, etc.). 
+
+The package naniar is used to convert negative values to NA values. 
+
+File: [load_and_clean_data.R](/static/load_and_clean_data.R)
+```{r load}
+source(here::here("static", "load_and_clean_data.R"), echo=TRUE)
+```
+
+The included variables are:
+
+* V202065x, combined data of the two the respondents party of registration where 1 = Democrat, 2= Republican, 4 = None or 'independent' and 5 = 'Other'.
+
+* V201014b, taken before the election, of 56 possible options, the state of a respondent's voter registration. Full variable guide is available at the above website.
+
+* V201511, taken before the election, the respondents level of education.
+
+* V201502, taken before the election, a feeling thermometer indicating how financially secure the respondent felt in the past year.
+
+* V201458x, taken before the election, a respondents self-identified religion.
+
+* V202117, taken after the election, how respondent voted where 1 = in person, 2 = by mail or absentee ballot.
+
+* V202073, taken after the election, who the respondent voted for in the presidential election.
+
+These variable can be studied along side the below authoritarian measures to examine possible relationships between authoritarian values and electoral behavior.
+
+In the following variables, a '3' response indicates a "both" answer:
+
+*V202266, whether the respondent values, in children, independence or respect for elders.
+
+* V202267, in children, whether the respondent values curiosity or good manners more.
+
+* V202268, in children, whether the respondent values obedience or self-reliance more.
+
+* V202269, in children, whether the respondent values being considerate or well-behaved more.
+
+The following answers are a feeling thermometer from 1 to 5:
+
+* V202270, how much the respondent agrees with the statement that, ‘The world would be a better place if people from other countries were more like Americans.’
+
+* V202273x, how much better or worse off the respondent feels the US is compared to other countries.
+ 
+* V202291, how often the respondent feels that women demanding equality want special favors.
+
+* V202292, how often the respondent feels that women complaining causes more problems than they solve.
+
+The following answers are a feeling thermometer from 1 to 7:
+
+* V202276x, whether the respondent feels that rural areas get more or less from the government and to what degree.
+
+* V202279x, whether the respondent feels that people in rural areas have too much or too little influence, and to what degree.
+
+* V202279x, whether the respondent feels that people in rural areas get too much or too little respect, and to what degree.
+
+* V202286x, whether the respondent feels that it is easier or harder for a working mother to bond with her child, and to what degree.
+
+* V202290x, whether the respondent feels that it is better or worse if a man works and a woman takes care of the home, and to what degree.
+
+
+
