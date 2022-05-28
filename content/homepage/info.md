@@ -1,8 +1,8 @@
 ---
-title: MA 415 Final Project
+title: Authoritarianism in the United States
 draft: false
-role: A Group Has No Name
-bio: This is a group has no name's data science project where we explore election data from 2000 to 2020 to analyze the rise of authoritarianism. Check out the links at the top for a deeper look into our project!
+role: Abe Winterscheidt, et al. 
+bio: From MA615 Final Project, Boston University Spring 2022, agrouphasnoname
 organization:
   name: Boston University
   url: https://www.bu.edu/
