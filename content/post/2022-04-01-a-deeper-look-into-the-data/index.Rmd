@@ -1,0 +1,108 @@
+---
+title: A Deeper Look into the Data
+author: 'A Team Has No Name'
+date: '2022-04-01'
+slug: []
+categories: []
+tags: []
+description: null
+toc: yes
+authors: []
+series: []
+lastmod: '2022-04-01T17:21:51-04:00'
+featuredVideo: null
+featuredImage: null
+---
+
+First, a quick note on blog post #2: a  few variables were improperly coded. I've corrected them and adjust the analysis, which is now much more in line with theory.
+
+# Possible Goals
+
+
+Future goals for this project likely fall into one of three categories: understanding regional relationships between authoritarianism and its indicators, breaking down the aggregate score to examine more micro-level beliefs and how they relate to on another, and exploring how socio-demographic traits and voting behavior correlate with authoritarianism. Our previous post touched briefly on the first and last of those questions. In this post we will present three models: 
+
+1. The relationship between the four authoritarian categories: child rearing beliefs, beliefs on women, foreign relations, and rural areas. 
+
+2. A comprehensive model of voting behavior on aggregated scores, including state-level fixed effects. 
+
+3. A state-level examination of each of the four primary authoritarian indicator classifications.
+
+# Model 1
+
+```{r m1}
+m1.a<- lm(child_score~women_score+foreign_score+rural_score, data=ANES_normalized)
+m1.b<- lm(women_score~child_score+foreign_score+rural_score, data=ANES_normalized)
+m1.c<- lm(foreign_score~women_score+child_score+rural_score, data=ANES_normalized)
+m1.d<- lm(rural_score~women_score+foreign_score+child_score, data=ANES_normalized)
+
+m1.a%>%broom::tidy()%>%knitr::kable(format="markdown")
+m1.b%>%broom::tidy()%>%knitr::kable(format="markdown")
+m1.c%>%broom::tidy()%>%knitr::kable(format="markdown")
+m1.d%>%broom::tidy()%>%knitr::kable(format="markdown")
+
+
+```
+
+From these models, we see strong, positive correlations between all four categories, indicating that authoritarian beliefs are intrapersonally consistent. 
+
+
+
+# Model 2
+
+Next, let us examine the Voting Behavior + Demographics model:
+
+```{r m2}
+ANES_normalized<-ANES_normalized%>%
+  mutate(Religious = ifelse(Religion != "Not Religious"&!is.na(Religion),1,ifelse(!is.na(Religion),0,NA)))
+m2<-lm(score ~ party + Religious +  President, data=ANES_normalized,na.rm=TRUE)
+m2%>%broom::tidy()%>%knitr::kable(format="markdown")
+```
+
+From this we see That for a non-religious, democratic, Biden voter, the average authoritarianism is 0.414. Holding ass other factors the same, Republicans are 0.038 points more authoritarian, which is statistically significant, Religious people are a statistically significant 0.051 points more authoritarian, and Trump voters are 0.1228143 statistically significant points more authoritarian. Interestingly, Jorgensen voters (the libertarian candidate) have a statistically significant increase in authoritarianism over Biden voters of 0.074 points, a (very unsurprising) oxymoronical twist on a group whose name is eponymous from the literal antithesis of authoritarianism.
+
+
+
+# Model 3
+
+In our third and final model, we explore state-level divisions in authoritarian traits.
+
+```{r m3}
+m3<-lm(cbind(child_score,women_score,foreign_score,rural_score)~state,data=ANES_normalized)
+m3%>%broom::tidy()%>%knitr::kable(format="markdown")
+```
+
+Perhaps a map would be more appeasing.
+
+
+```{r map}
+library(gridExtra)
+
+ANES_state<- ANES_normalized%>%
+  group_by(state)%>%
+  dplyr::summarize(cs=mean(child_score,na.rm=TRUE),ws=mean(women_score,na.rm=TRUE),fs=mean(foreign_score,na.rm=TRUE),rs = mean(rural_score,na.rm=TRUE))
+
+cs<-plot_usmap(data=ANES_state, regions = "states",values = "cs")+
+  scale_fill_continuous(low="palegreen",high="tomato",name="Authoritarian Child Rearing")+
+  theme(legend.position = "right",legend.title=element_text(size=5))
+ws<-plot_usmap(data=ANES_state, regions = "states",values = "ws")+
+  scale_fill_continuous(low="palegreen",high="tomato",name="Authoritarian Views on Women")+
+  theme(legend.position = "right",legend.title=element_text(size=5))
+fs<-plot_usmap(data=ANES_state, regions = "states",values = "fs")+
+  scale_fill_continuous(low="palegreen",high="tomato",name="Auhtoritarian Views on International Relations")+
+  theme(legend.position = "right",legend.title=element_text(size=5))
+rs<-plot_usmap(data=ANES_state, regions = "states",values = "rs")+
+  scale_fill_continuous(low="palegreen",high="tomato",name="Authoritarian Views on Rural Areas")+
+  theme(legend.position = "right",legend.title=element_text(size=5))
+
+grid.arrange(cs,ws,fs,rs,nrow=2)
+```
+
+There we go! 
+
+From the plots we see that the views on women are the most authoritarian overall, while views on rural areas are the least. Child rearing is solidly average, while international relations is a mixed bag. The general trend of red-leaning states being more authoritarian and vice versa holds true, though this is certainly worth further analysis as we begin to introduce state-level panel data. Montana sticks out like a sore thumb on the rural areas plot, while Washington and Colorado have the most libertarian views on international relations. 
+
+
+
+# Moving Forward
+
+Panel data is the nectar and ambrosia of political research, and, as such, we expect to introduce ANES time-series data files in the future, while also providing state level electoral data across recent elections. Together, these can provide a more wholistic view of the rise and proliferation of authoritarian views in the United States.

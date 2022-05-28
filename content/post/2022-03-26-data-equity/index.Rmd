@@ -1,0 +1,20 @@
+---
+title: "Data Equity"
+author: "A Group Has No Name"
+date: '2022-03-26'
+slug: []
+categories: []
+tags: []
+description: ~
+toc: yes
+authors: []
+series: []
+lastmod: '2022-03-26T07:15:52-04:00'
+featuredVideo: ~
+featuredImage: ~
+---
+
+
+A data equity approach employs an equity-centered lens to ensure data is gathered, analyzed, interpreted, and shared without bias or exclusion. It emphasizes marginalized communities’ unequal access to data and their harm when data is misused. For more than 40 years, the Belmont Report has guided protections of human subjects based on three principles - beneficence, respect for persons, and justice.
+
+Transparency of the data set chosen is maintained in order to avoid any discredited results generated from the analysis. For example, children behavior surveys may lead to misleading statistics. Hence, all the analysis will be documented step-by-step before writing disclosures about disposition. ANES is an open access datasets that was collected with informed consent. The data has already been filtered to minimize the amount of personally identifiable information collected. It is made non-confidential to reduce the burden of duplicate data collection. The demographics in this survey include opinions from underrepresented groups, as well as those from different age groups, genders and religions. Although the chances of misusing the data is minimal as it does not involve personal information, the data sets include sensitive topics such as voting, child behavior and gender equality that can possibly harm an individual or a community. Thus, a clear and cohesive documentation will facilitate easy access for the population.

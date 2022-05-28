@@ -1,0 +1,47 @@
+---
+title: "Data Proposals"
+author: "A Team Has No Name"
+date: '2022-02-28'
+slug: []
+categories: []
+tags: []
+description: null
+toc: yes
+authors: []
+series: []
+lastmod: '2022-02-28T14:55:09-05:00'
+featuredVideo: null
+featuredImage: null
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+
+</div>
+
+<div id="dataset-1" class="section level2">
+<h2>Dataset 1</h2>
+<p>Our first proposed dataset we are interested in working with is the American National Election Survey Data from the 2020 election, perhaps to examine the role authoritarian values played in the electorate in the most recent presidential election. Working with their historical time series data could also help us examine the rise of authoritarianism in the 21st century. ANES data can be found at the <a href="https://electionstudies.org/data-center/2020-time-series-study/">election survey data center</a>. The American National Election Survey is a nationwide survey in the United States taken every four years since 1948. ANES data has played a critical role in political science research over the last seventy-odd years, helping researchers examine long standing trends in the American electorate and providing insight into the ever changing zeitgeist of American politics. For instance, in their most recent 2020 survey, they implemented questions regarding sexual misconduct, voting experience, and more, all meant to capture important debates during the most recent election cycle. The survey is conducted in two parts: before and after the election. The data set in question contains survery results for the 2020 election with 8,280 observations of 1,771 variables. Loading and cleaning the data would involve the selection of 19 key variables measuring voter demographics and authoritarian beliefs and the conversion of negative values (which indicate various types of non-answers) to <code>NA</code>s.</p>
+<p><br/></p>
+<p>The variables in question are <em>V202064</em> Party, <em>V202065x</em> party, <em>V201014b</em> State, <em>V201511x</em> education level, <em>V201502</em> financial security in the past year,, <em>V201458x</em> Religion, <em>V202117</em> method of vote, <em>V202073</em> who they voted for in the presidential race, and the following authoritarian value measures: <em>V202266</em> Independence v. Respect for elders, <em>V202267</em> Curiosity v. Manners, <em>V202268</em> Obedience v. self-reliance, <em>V202269</em> considerate v. well-behaved, <em>V202270</em> if more countries should be like America, <em>V202273x</em> if America is better or worse than other countries, <em>V202276x</em> how well rural areas are treated, <em>V202279x</em> how influential rural areas are, <em>V202282x</em> how respected rural areas are, <em>V202286x</em> how well working mothers bond with children, <em>V202290x</em> if it is better for a man to work and a women to stay home, <em>V202291</em> if women wanting equality want special treatment, and <em>V202292</em> if women complaining about equality causes more problems than they solve.</p>
+</div>
+<div id="dataset-2" class="section level2">
+<h2>Dataset 2</h2>
+<p>Our second dataset specifically focuses on Coal Production in the United States that goes considerably far back (to the 1990s). Over the span of 30 years, the United States Energy Information Administration has usually documented all sorts of statistics on the production of certain energy resources through numerous audits. The data can be found at their <a href="https://www.eia.gov/coal/production/quarterly/">website</a>. Generally speaking this data is a time series data as it focuses on quarterly production, and through this general website/page one can find numerous data sets on the specific kinds of coal production, and not just a general overview of how much has been produced over the years. Generally speaking, the data is very easy to comprehend and clean, it would be a matter of
+visualizing it in such a way to truly capture the gravity of certain trends.</p>
+<p><br/></p>
+<p>This sort of data analysis/visualization would be important as coal has played a traditional role in powering the United States, even if it is declining in popularity and usage. A project oriented around this particular data sets would be quite useful for environmental policy experts, in a nationwide sense it would be good to see what kinds of coal production is still being utilized in certain regions of the country, not to mention reflect on the progress to not become so reliant on coal power.</p>
+</div>
+<div id="dataset-3" class="section level2">
+<h2>Dataset 3</h2>
+<p>Our third data set is a comprehensive over view of global inflation from 1960 to 2020. From the <a href="https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG">World Bank</a>, the dataset includes annual inflation rates measured from consumer pricesfor 265 countries with varying levels of completeness (that is, certain countries lack data in the earliest years while others lack data for the latest years). The World Bank is a multi-national, multi-institutional organization focused on studying and aiding poverty, especially in developing countries. They aggregate various economic and demographic data from around the world into comprehensive comparative datasets.</p>
+<p><br/></p>
+<p>The primary interest in this data is comparing pandemic-era inflaiton across multiple nations In order to do this, we’d need to append the provided data with more recent data from 2021, the height of pandmeic inflation, and include additional, exogenous factors that may have affected the CPIs. Much debate around inflation centered around the effect of monetary policy, and while the United States did have significantly larger increases in money supply and spending than other other, similar countries during the pandemic, those other nations had only had marginally lower inflation rates. Understanding the role that inflation expectations and trajectory, supply chain constraints, the Russian-OPEC (oil) price war, the dramatic and unprecedented changes in the labor market in the US – labor changes in other countries are worth their own explorations – the pandemic <em>per se</em>, and other exogenous factors played on inflation is important in deciphering the validity of Modern Monetary Theory and its effects on real economies in the (post?/hyper?/non?)-Keynesian<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> world. A cross-region comparative study of pandemic-era economic indicators would be an important step in the larger body of research.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Any economist worth their salt doesn’t know what model to trust anymore, not that they ever should have fully trusted one in the first place.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>

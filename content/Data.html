@@ -1,66 +1,52 @@
 ---
-title: "Data"
-author: "Abe Winterscheidt"
-date: "2/21/2022"
+title: Data
+description:
+toc: true
+featuredVideo:
+featuredImage: /images/big_brother2.jpg
+draft: false
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
+<div id="TOC">
 
-<p>For the project in MA 615, I am interested in working with American National Election Survey Data from the 2020 election, perhaps to examine the role authoritarian values played in the electorate. Working with their historical time series data could also help us examine the rise of authoritarianism in the 21st century.</p>
-<p>ANES data can be found at the <a href="https://electionstudies.org/data-center/2020-time-series-study/">election survey data center</a>. The American National Election Survey is a nationwide survey in the United States taken every four years since 1948. ANES data has played a critical role in political science research over the last seventy-odd years, helping researchers examine long standing trends in the American electorate and providing insight into the ever changing zeitgeist of American politics. For instance, in their most recent 2020 survey, they implemented questions regarding sexual misconduct, voting experience, and more, all meant to capture important debates during the most recent election cycle. The survey is conducted in two parts: before and after the election.</p>
-<p>For my data, I focused on 19 main variables (out of hundreds – I will only discuss the selected few below). To clean the data, I transferred the variables of interest to a new data set and converted all values below 0 to “NA”s. The survey data is coded such that negative values correspond to some non-answer (eg. -9 = Refused (in some cases “refuse to answer” is a possible selection answer, in which case there is a positive “refuse” value), -8 = don’t know, -1 = inapplicable, etc.).</p>
-<p>The package naniar is used to convert negative values to NA values.</p>
-<p>File: <a href="/load_and_clean_data.R">load_and_clean_data.R</a></p>
-<pre class="r"><code>source(here::here(&quot;static&quot;, &quot;load_and_clean_data.R&quot;), echo=TRUE)</code></pre>
-<pre><code>## 
-## &gt; library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.6     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.1     ✓ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre><code>## 
-## &gt; library(naniar)
-## 
-## &gt; ANES &lt;- read.csv(here::here(&quot;dataset-ignore&quot;, &quot;ANES.csv&quot;))
-## 
-## &gt; dataset &lt;- ANES %&gt;% select(&quot;V202065x&quot;, &quot;V201014b&quot;, 
-## +     &quot;V201502&quot;, &quot;V201458x&quot;, &quot;V202117&quot;, &quot;V202073&quot;, &quot;V202266&quot;, &quot;V202267&quot;, 
-## +     &quot;V202268&quot;, &quot;V202 ...&quot; ... [TRUNCATED]</code></pre>
-<p>The included variables are:</p>
-<ul>
-<li><p>V202065x, combined data of the two the respondents party of registration where 1 = Democrat, 2= Republican, 4 = None or ‘independent’ and 5 = ‘Other’.</p></li>
-<li><p>V201014b, taken before the election, of 56 possible options, the state of a respondent’s voter registration. Full variable guide is available at the above website.</p></li>
-<li><p>V201511, taken before the election, the respondents level of education.</p></li>
-<li><p>V201502, taken before the election, a feeling thermometer indicating how financially secure the respondent felt in the past year.</p></li>
-<li><p>V201458x, taken before the election, a respondents self-identified religion.</p></li>
-<li><p>V202117, taken after the election, how respondent voted where 1 = in person, 2 = by mail or absentee ballot.</p></li>
-<li><p>V202073, taken after the election, who the respondent voted for in the presidential election.</p></li>
-</ul>
-<p>These variable can be studied along side the below authoritarian measures to examine possible relationships between authoritarian values and electoral behavior.</p>
-<p>In the following variables, a ‘3’ response indicates a “both” answer:</p>
-<p>*V202266, whether the respondent values, in children, independence or respect for elders.</p>
-<ul>
-<li><p>V202267, in children, whether the respondent values curiosity or good manners more.</p></li>
-<li><p>V202268, in children, whether the respondent values obedience or self-reliance more.</p></li>
-<li><p>V202269, in children, whether the respondent values being considerate or well-behaved more.</p></li>
-</ul>
-<p>The following answers are a feeling thermometer from 1 to 5:</p>
-<ul>
-<li><p>V202270, how much the respondent agrees with the statement that, ‘The world would be a better place if people from other countries were more like Americans.’</p></li>
-<li><p>V202273x, how much better or worse off the respondent feels the US is compared to other countries.</p></li>
-<li><p>V202291, how often the respondent feels that women demanding equality want special favors.</p></li>
-<li><p>V202292, how often the respondent feels that women complaining causes more problems than they solve.</p></li>
-</ul>
-<p>The following answers are a feeling thermometer from 1 to 7:</p>
-<ul>
-<li><p>V202276x, whether the respondent feels that rural areas get more or less from the government and to what degree.</p></li>
-<li><p>V202279x, whether the respondent feels that people in rural areas have too much or too little influence, and to what degree.</p></li>
-<li><p>V202279x, whether the respondent feels that people in rural areas get too much or too little respect, and to what degree.</p></li>
-<li><p>V202286x, whether the respondent feels that it is easier or harder for a working mother to bond with her child, and to what degree.</p></li>
-<li><p>V202290x, whether the respondent feels that it is better or worse if a man works and a woman takes care of the home, and to what degree.</p></li>
-</ul>
+</div>
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In this project, we collected data from two primary sources. First, we collected <a href="https://electionstudies.org/data-center/">American National Election Studies Data</a> for Presidential election years from 2000 to 2020. The ANES is a nationwide survey conducted every four years (and in some midterm years) since 1948. For the past 70 years, the team at ANES has focused on providing a comprehensive outlook on American politics and political attitudes. While variables change from year to year, the Studies aim to glean insight into longstanding trends in how the general American voter thinks and votes.</p>
+</div>
+<div id="anes-data" class="section level2">
+<h2>ANES Data</h2>
+<p>Using the ANES Data, we isolated variables measuring individual respondent’s authoritarianism along with variables measuring their financial status, party, state of registration, religion, and who they voted for. The authoritarian variables varied by year, but broadly consisted of four primary categories of questions: respondents’ opinions on child-rearing (the most consistent of the variables across each year - generally, this consisted of questions asking if respondents preferred children to have one of two opposite traits or both, one being coded as authoritarian, the other as “libertarian” in the antithetical sense), respondents’ opinions in the United States’ global status, the respondents’ opinions on the influence of rural areas, and the respondents’ opinions on questions regarding women’s rights.</p>
+<p>As respondents were not consistent across election years, we joined each file vertically using <code>rbind</code>. Then, using this file, we created a “authoritarianism score” for each respondent. To do so, we normalized each variable in each yearly dataset – not all years were coded the same – by setting the most authoritarian answer equal to 1, the least equal to 0, and then respectively scoring the responses in between. NA values were coded as any negative response or as whatever unique values that year’s code book identified. We then calculated five aggregate scores: one for each of the broad classification of authoritarianism questions, and one overall authoritarianism score. Next, we summarized the data by state and year to provide a clean panel dataset.</p>
+<div id="an-example-of-how-we-normalized-a-variable" class="section level3">
+<h3>An example of how we normalized a variable</h3>
+<pre class="r"><code>    ANES_sum$rural.govt[ANES_sum$rural.govt==1]&lt;-0
+    ANES_sum$rural.govt[ANES_sum$rural.govt==2]&lt;-.17
+    ANES_sum$rural.govt[ANES_sum$rural.govt==3]&lt;-.34
+    ANES_sum$rural.govt[ANES_sum$rural.govt==4]&lt;-.51
+    ANES_sum$rural.govt[ANES_sum$rural.govt==5]&lt;-.68
+    ANES_sum$rural.govt[ANES_sum$rural.govt==6]&lt;-.85
+    ANES_sum$rural.govt[ANES_sum$rural.govt==7]&lt;-1</code></pre>
+</div>
+</div>
+<div id="mit-election-lab-data" class="section level2">
+<h2>MIT Election Lab Data</h2>
+<p>Our second data source was the <a href="https://electionlab.mit.edu/data">MIT Election Lab</a>, a team at MIT who has focused on collecting and curating decades of election data in the United States in aims to further political sciences research and bolster democracy. From the MIT Election Lab, we downloaded their presidential election data from 1976 to 2020, which includes observations for each candidate in each state in ach year and measures their votes and vote share. We isolated to the years of relevancy (2000 - 2020), and selected the state, year, party simplified variable (identifying each candidate as Republican, Democrat, Libertarian, or Other), and share, measuring each candidate’s respective vote share in the respective year and state.</p>
+<p>Next, we pivoted the data wider, making the party-simplified variable into three unique columns, each with the respective vote share – Democrat, Republican, and Libertarian were kept, other was omitted. We then created a “margin” variable, measuring how many more percentage points of the votes the Democratic candidate in each state and year received compared to the Republican one. The scores from the ANES data were combined with this election data to create a panel with election and authoritarianism data for each state and year.</p>
+<div id="pivoting-and-joining" class="section level3">
+<h3>Pivoting and Joining</h3>
+<pre class="r"><code> MIT_State &lt;- MIT_ELECTION_clean%&gt;%
+      filter(party_simplified != &quot;other&quot;)%&gt;%
+      pivot_wider(names_from = party_simplified,values_from = share)%&gt;%
+      mutate(margin = democrat-republican)%&gt;%
+      mutate(year = as.factor(year))%&gt;%
+      left_join(ANES_state,by = c(&quot;state&quot;,&quot;year&quot;))</code></pre>
+</div>
+</div>
+<div id="load-and-clean" class="section level2">
+<h2>Load and Clean</h2>
+<p>All these steps can be seen in our <a href="/load_and_clean_data.R">load_and_clean_data.R</a> file. Additional packages used were <code>naniar</code> and <code>haven</code>. The former was used to replace non-response codes in the ANES data set with NAs, and the former latter was used to import .dta files, as earlier ANES data sets had such file types.</p>
+<hr />
+</div>

@@ -1,0 +1,889 @@
+year,state,party_simplified,share
+2000,alabama,republican,0.564837554
+2000,alabama,democrat,0.415665029
+2000,alabama,other,0.01554128
+2000,alaska,republican,0.586209553
+2000,alaska,democrat,0.276663398
+2000,alaska,other,0.100668861
+2000,alaska,other,0.018181818
+2000,arizona,republican,0.510211382
+2000,arizona,democrat,0.44734585
+2000,arizona,other,0.029794075
+2000,arkansas,republican,0.513071977
+2000,arkansas,democrat,0.458642563
+2000,arkansas,other,0.014559857
+2000,california,democrat,0.534497368
+2000,california,republican,0.416514968
+2000,california,other,0.038182911
+2000,colorado,republican,0.507502148
+2000,colorado,democrat,0.42393509
+2000,colorado,other,0.052506995
+2000,connecticut,democrat,0.559096281
+2000,connecticut,republican,0.384436032
+2000,connecticut,other,0.044159572
+2000,delaware,democrat,0.549777272
+2000,delaware,republican,0.419162883
+2000,delaware,other,0.02536264
+2000,district of columbia,democrat,0.851550814
+2000,district of columbia,republican,0.089517271
+2000,district of columbia,other,0.052383924
+2000,florida,republican,0.488468266
+2000,florida,democrat,0.488378212
+2000,florida,other,0.016348516
+2000,georgia,republican,0.549595697
+2000,georgia,democrat,0.432109997
+2000,georgia,libertarian,0.014064682
+2000,hawaii,democrat,0.557916679
+2000,hawaii,republican,0.374628687
+2000,hawaii,other,0.058765977
+2000,idaho,republican,0.671704395
+2000,idaho,democrat,0.276381288
+2000,idaho,other,0.024504849
+2000,idaho,other,0.015180965
+2000,illinois,democrat,0.545965212
+2000,illinois,republican,0.4258488
+2000,illinois,other,0.021880354
+2000,indiana,republican,0.566468816
+2000,indiana,democrat,0.410121029
+2000,iowa,democrat,0.471919156
+2000,iowa,republican,0.468856382
+2000,iowa,other,0.027685433
+2000,iowa,other,0.02170992
+2000,kansas,republican,0.580416632
+2000,kansas,democrat,0.372383923
+2000,kansas,other,0.034936058
+2000,kentucky,republican,0.565064834
+2000,kentucky,democrat,0.413781826
+2000,kentucky,other,0.01497177
+2000,louisiana,republican,0.525510632
+2000,louisiana,democrat,0.448753325
+2000,louisiana,other,0.011595124
+2000,maine,democrat,0.490860165
+2000,maine,republican,0.43971851
+2000,maine,other,0.056959239
+2000,maryland,democrat,0.564883084
+2000,maryland,republican,0.401847807
+2000,maryland,other,0.026549319
+2000,massachusetts,democrat,0.59126126
+2000,massachusetts,republican,0.32132903
+2000,massachusetts,other,0.063484377
+2000,massachusetts,other,0.011346894
+2000,michigan,democrat,0.512797989
+2000,michigan,republican,0.461462147
+2000,michigan,other,0.019885406
+2000,minnesota,democrat,0.479055721
+2000,minnesota,republican,0.455023507
+2000,minnesota,other,0.051952589
+2000,mississippi,republican,0.576195151
+2000,mississippi,democrat,0.406981002
+2000,missouri,republican,0.50422816
+2000,missouri,democrat,0.470842733
+2000,missouri,other,0.016320662
+2000,montana,republican,0.584394602
+2000,montana,democrat,0.333651268
+2000,montana,other,0.059459446
+2000,montana,other,0.013861786
+2000,nebraska,republican,0.62245362
+2000,nebraska,democrat,0.33253039
+2000,nebraska,other,0.035207075
+2000,nevada,republican,0.494850892
+2000,nevada,democrat,0.459412628
+2000,nevada,other,0.024626452
+2000,new hampshire,republican,0.480703099
+2000,new hampshire,democrat,0.468031792
+2000,new hampshire,other,0.039006749
+2000,new jersey,democrat,0.561256089
+2000,new jersey,republican,0.402912439
+2000,new jersey,other,0.035831472
+2000,new mexico,democrat,0.479085541
+2000,new mexico,republican,0.478474119
+2000,new mexico,other,0.035500873
+2000,new york,democrat,0.566392705
+2000,new york,republican,0.324498166
+2000,new york,other,0.035060699
+2000,new york,other,0.020803524
+2000,new york,other,0.019858007
+2000,new york,other,0.012700039
+2000,new york,other,0.011075376
+2000,north carolina,republican,0.55957756299999994
+2000,north carolina,democrat,0.431456712
+2000,north dakota,republican,0.606585813
+2000,north dakota,democrat,0.330553397
+2000,north dakota,other,0.03628372
+2000,north dakota,other,0.025283082
+2000,ohio,republican,0.499864738
+2000,ohio,democrat,0.464404281
+2000,ohio,other,0.031551056
+2000,oklahoma,republican,0.603078521
+2000,oklahoma,democrat,0.384269046
+2000,oregon,democrat,0.4695994
+2000,oregon,republican,0.465189217
+2000,oregon,other,0.050429936
+2000,pennsylvania,democrat,0.506081713
+2000,pennsylvania,republican,0.464381329
+2000,pennsylvania,other,0.021048067
+2000,rhode island,democrat,0.609877002
+2000,rhode island,republican,0.319117992
+2000,rhode island,other,0.061235065
+2000,south carolina,republican,0.568603846
+2000,south carolina,democrat,0.409015234
+2000,south carolina,other,0.014653494
+2000,south dakota,republican,0.602967727
+2000,south dakota,democrat,0.375642254
+2000,south dakota,other,0.010503717
+2000,tennessee,republican,0.511491532
+2000,tennessee,democrat,0.472848947
+2000,tennessee,other,0.015453373
+2000,texas,republican,0.592985995
+2000,texas,democrat,0.379819581
+2000,texas,other,0.021535864
+2000,utah,republican,0.66830143
+2000,utah,democrat,0.263447222
+2000,utah,other,0.046512895
+2000,utah,other,0.012090758
+2000,vermont,democrat,0.506347092
+2000,vermont,republican,0.406971608
+2000,vermont,other,0.069226796
+2000,virginia,republican,0.524737292
+2000,virginia,democrat,0.444356105
+2000,virginia,other,0.021682478
+2000,washington,democrat,0.501582153
+2000,washington,republican,0.445786479
+2000,washington,other,0.041408955
+2000,west virginia,republican,0.519152199
+2000,west virginia,democrat,0.455926644
+2000,west virginia,other,0.016478328
+2000,wisconsin,democrat,0.478328197
+2000,wisconsin,republican,0.476131635
+2000,wisconsin,other,0.036200164
+2000,wyoming,republican,0.692227431
+2000,wyoming,democrat,0.28298382
+2000,wyoming,other,0.012745291
+2004,alabama,republican,0.624606898
+2004,alabama,democrat,0.368444023
+2004,alaska,republican,0.610653299
+2004,alaska,democrat,0.355168619
+2004,alaska,other,0.016215715
+2004,arizona,republican,0.548694341
+2004,arizona,democrat,0.443968329
+2004,arkansas,republican,0.543059591
+2004,arkansas,democrat,0.445476304
+2004,california,democrat,0.543055575
+2004,california,republican,0.44357696
+2004,colorado,republican,0.517110954
+2004,colorado,democrat,0.470378423
+2004,connecticut,democrat,0.54313709
+2004,connecticut,republican,0.439472779
+2004,delaware,democrat,0.533468376
+2004,delaware,republican,0.457528186
+2004,district of columbia,democrat,0.89183869
+2004,district of columbia,republican,0.093397661
+2004,florida,republican,0.520975162
+2004,florida,democrat,0.4709111
+2004,georgia,republican,0.579747568
+2004,georgia,democrat,0.413749461
+2004,hawaii,democrat,0.540095522
+2004,hawaii,republican,0.452645957
+2004,idaho,republican,0.683909448
+2004,idaho,democrat,0.30264917
+2004,illinois,democrat,0.548231602
+2004,illinois,republican,0.444786268
+2004,indiana,republican,0.59944765
+2004,indiana,democrat,0.392629747
+2004,iowa,republican,0.499006575
+2004,iowa,democrat,0.492331317
+2004,kansas,republican,0.620039806
+2004,kansas,democrat,0.366230943
+2004,kentucky,republican,0.595495138
+2004,kentucky,democrat,0.39687073
+2004,louisiana,republican,0.567220213
+2004,louisiana,democrat,0.422158647
+2004,maine,democrat,0.535728557
+2004,maine,republican,0.445764574
+2004,maine,other,0.010892984
+2004,maryland,democrat,0.559714676
+2004,maryland,republican,0.429782178
+2004,massachusetts,democrat,0.616166602
+2004,massachusetts,republican,0.365884019
+2004,michigan,democrat,0.512307067
+2004,michigan,republican,0.478120586
+2004,minnesota,democrat,0.510896847
+2004,minnesota,republican,0.476135338
+2004,mississippi,republican,0.590143741
+2004,mississippi,democrat,0.401611126
+2004,missouri,republican,0.532961919
+2004,missouri,democrat,0.461004465
+2004,montana,republican,0.590681432
+2004,montana,democrat,0.385650284
+2004,montana,other,0.01369346
+2004,nebraska,republican,0.658986412
+2004,nebraska,democrat,0.326821608
+2004,nevada,republican,0.504696915
+2004,nevada,democrat,0.478780405
+2004,new hampshire,democrat,0.502016108
+2004,new hampshire,republican,0.48834343
+2004,new jersey,democrat,0.52923409
+2004,new jersey,republican,0.462388117
+2004,new mexico,republican,0.498384248
+2004,new mexico,democrat,0.490466796
+2004,new york,democrat,0.561305813
+2004,new york,republican,0.3768653
+2004,new york,other,0.020887278
+2004,new york,other,0.017926991
+2004,new york,other,0.011310955
+2004,north carolina,republican,0.560171973
+2004,north carolina,democrat,0.435831462
+2004,north dakota,republican,0.62861335
+2004,north dakota,democrat,0.354988125
+2004,north dakota,other,0.012006406
+2004,ohio,republican,0.508140243
+2004,ohio,democrat,0.487066852
+2004,oklahoma,republican,0.655704017
+2004,oklahoma,democrat,0.34429598300000003
+2004,oregon,democrat,0.51348663
+2004,oregon,republican,0.471929167
+2004,pennsylvania,democrat,0.509238091
+2004,pennsylvania,republican,0.484236662
+2004,rhode island,democrat,0.594234262
+2004,rhode island,republican,0.386714371
+2004,rhode island,other,0.010639758
+2004,south carolina,republican,0.579819497
+2004,south carolina,democrat,0.409018359
+2004,south dakota,republican,0.599111317
+2004,south dakota,democrat,0.384436459
+2004,south dakota,other,0.011127854
+2004,tennessee,republican,0.567990895
+2004,tennessee,democrat,0.425252911
+2004,texas,republican,0.610858228
+2004,texas,democrat,0.382242605
+2004,utah,republican,0.715359479
+2004,utah,democrat,0.259956415
+2004,utah,other,0.01218416
+2004,vermont,democrat,0.589374626
+2004,vermont,republican,0.388013154
+2004,vermont,other,0.014389595
+2004,virginia,republican,0.537319566
+2004,virginia,democrat,0.455259176
+2004,washington,democrat,0.528211483
+2004,washington,republican,0.45640282
+2004,west virginia,republican,0.560707179
+2004,west virginia,democrat,0.432051411
+2004,wisconsin,democrat,0.496997171
+2004,wisconsin,republican,0.493198715
+2004,wyoming,republican,0.687395689
+2004,wyoming,democrat,0.29023091
+2004,wyoming,other,0.013827549
+2008,alabama,republican,0.60316913
+2008,alabama,democrat,0.387404343
+2008,alaska,republican,0.594245195
+2008,alaska,democrat,0.378893736
+2008,alaska,other,0.011597286
+2008,arizona,republican,0.536352478
+2008,arizona,democrat,0.451152509
+2008,arkansas,republican,0.587159045
+2008,arkansas,democrat,0.388646598
+2008,arkansas,other,0.011855143
+2008,california,democrat,0.610126383
+2008,california,republican,0.369548588
+2008,colorado,democrat,0.536602368
+2008,colorado,republican,0.447075221
+2008,connecticut,democrat,0.605888297
+2008,connecticut,republican,0.382214633
+2008,connecticut,other,0.011635956
+2008,delaware,democrat,0.61942669
+2008,delaware,republican,0.369470335
+2008,district of columbia,democrat,0.924571098
+2008,district of columbia,republican,0.065325575
+2008,florida,democrat,0.510333053
+2008,florida,republican,0.482153192
+2008,georgia,republican,0.52204518
+2008,georgia,democrat,0.469901791
+2008,hawaii,democrat,0.714529101
+2008,hawaii,republican,0.264362019
+2008,idaho,republican,0.615170915
+2008,idaho,democrat,0.360909876
+2008,idaho,other,0.010952159
+2008,illinois,democrat,0.619181145
+2008,illinois,republican,0.367809225
+2008,indiana,democrat,0.499459116
+2008,indiana,republican,0.489139072
+2008,indiana,libertarian,0.010634833
+2008,iowa,democrat,0.539280201
+2008,iowa,republican,0.443932594
+2008,kansas,republican,0.566122543
+2008,kansas,democrat,0.416519672
+2008,kentucky,republican,0.573990211
+2008,kentucky,democrat,0.411681138
+2008,louisiana,republican,0.585627213
+2008,louisiana,democrat,0.399329138
+2008,maine,democrat,0.577057373
+2008,maine,republican,0.403840183
+2008,maine,other,0.014546688
+2008,maryland,democrat,0.619193448
+2008,maryland,republican,0.364745196
+2008,massachusetts,democrat,0.613631991
+2008,massachusetts,republican,0.357349593
+2008,michigan,democrat,0.574332473
+2008,michigan,republican,0.409597057
+2008,minnesota,democrat,0.540602927
+2008,minnesota,republican,0.43822931
+2008,minnesota,other,0.010360198
+2008,mississippi,republican,0.56176189
+2008,mississippi,democrat,0.430015544
+2008,missouri,republican,0.494260744
+2008,missouri,democrat,0.492926479
+2008,montana,republican,0.495324509
+2008,montana,democrat,0.472684648
+2008,montana,other,0.021705376
+2008,nebraska,republican,0.565318534
+2008,nebraska,democrat,0.415982658
+2008,nevada,democrat,0.551466759
+2008,nevada,republican,0.426541151
+2008,new hampshire,democrat,0.541268971
+2008,new hampshire,republican,0.445214285
+2008,new jersey,democrat,0.572721372
+2008,new jersey,republican,0.417039339
+2008,new mexico,democrat,0.569074803
+2008,new mexico,republican,0.417790348
+2008,new york,democrat,0.601569615
+2008,new york,republican,0.313172371
+2008,new york,other,0.02207648
+2008,new york,other,0.021234472
+2008,new york,other,0.020669853
+2008,new york,other,0.010968763
+2008,north carolina,democrat,0.497036664
+2008,north carolina,republican,0.493747986
+2008,north dakota,republican,0.532501003
+2008,north dakota,democrat,0.4462054
+2008,north dakota,other,0.013230329
+2008,ohio,democrat,0.515042701
+2008,ohio,republican,0.469105784
+2008,oklahoma,republican,0.656450811
+2008,oklahoma,democrat,0.343549189
+2008,oregon,democrat,0.567488063
+2008,oregon,republican,0.404009817
+2008,oregon,other,0.010183471
+2008,pennsylvania,democrat,0.54485528
+2008,pennsylvania,republican,0.441670525
+2008,rhode island,democrat,0.628640046
+2008,rhode island,republican,0.350578465
+2008,rhode island,other,0.010236007
+2008,south carolina,republican,0.53873644
+2008,south carolina,democrat,0.4489656
+2008,south dakota,republican,0.531589764
+2008,south dakota,democrat,0.447474311
+2008,south dakota,other,0.011170888
+2008,tennessee,republican,0.568969543
+2008,tennessee,democrat,0.418285381
+2008,tennessee,other,0.012745077
+2008,texas,republican,0.554523605
+2008,texas,democrat,0.436831214
+2008,utah,republican,0.625838697
+2008,utah,democrat,0.344057457
+2008,utah,other,0.012612745
+2008,vermont,democrat,0.674556832
+2008,vermont,republican,0.304492287
+2008,vermont,other,0.010272392
+2008,virginia,democrat,0.526294699
+2008,virginia,republican,0.463305007
+2008,washington,democrat,0.576528922
+2008,washington,republican,0.404763049
+2008,west virginia,republican,0.557103431
+2008,west virginia,democrat,0.425897504
+2008,west virginia,other,0.010118424
+2008,wisconsin,democrat,0.562177865
+2008,wisconsin,republican,0.423136625
+2008,wyoming,republican,0.647137746
+2008,wyoming,democrat,0.325094938
+2008,wyoming,other,0.01458196
+2012,alabama,republican,0.605458223
+2012,alabama,democrat,0.383590331
+2012,alaska,republican,0.548015774
+2012,alaska,democrat,0.408126591
+2012,alaska,libertarian,0.024599411
+2012,arizona,republican,0.536545332
+2012,arizona,democrat,0.445897669
+2012,arizona,libertarian,0.01396105
+2012,arkansas,republican,0.605669361
+2012,arkansas,democrat,0.368789903
+2012,arkansas,libertarian,0.015218782
+2012,california,democrat,0.602389591
+2012,california,republican,0.371203785
+2012,california,libertarian,0.010984429
+2012,colorado,democrat,0.514922266
+2012,colorado,republican,0.461270916
+2012,colorado,libertarian,0.013833344
+2012,connecticut,democrat,0.580850133
+2012,connecticut,republican,0.407451142
+2012,delaware,democrat,0.58610742
+2012,delaware,republican,0.399826041
+2012,district of columbia,democrat,0.909131139
+2012,district of columbia,republican,0.072782914
+2012,florida,democrat,0.500078651
+2012,florida,republican,0.491309778
+2012,georgia,republican,0.533292422
+2012,georgia,democrat,0.455079597
+2012,georgia,libertarian,0.011627982
+2012,hawaii,democrat,0.701479324
+2012,hawaii,republican,0.276821477
+2012,idaho,republican,0.645297835
+2012,idaho,democrat,0.326223336
+2012,idaho,libertarian,0.014492376
+2012,idaho,other,0.01057991
+2012,illinois,democrat,0.576021354
+2012,illinois,republican,0.407327413
+2012,illinois,libertarian,0.010726602
+2012,indiana,republican,0.541255324
+2012,indiana,democrat,0.439273029
+2012,indiana,libertarian,0.019093294
+2012,iowa,democrat,0.519880165
+2012,iowa,republican,0.461778685
+2012,kansas,republican,0.597113204
+2012,kansas,democrat,0.379945706
+2012,kansas,libertarian,0.017634924
+2012,kentucky,republican,0.604931416
+2012,kentucky,democrat,0.378013278
+2012,louisiana,republican,0.577845757
+2012,louisiana,democrat,0.405774636
+2012,maine,democrat,0.553710342
+2012,maine,republican,0.40327392
+2012,maine,other,0.015974988
+2012,maine,libertarian,0.012903617
+2012,maine,other,0.01120236
+2012,maryland,democrat,0.619741908
+2012,maryland,republican,0.358977323
+2012,maryland,libertarian,0.011153067
+2012,massachusetts,democrat,0.603383083
+2012,massachusetts,republican,0.373191223
+2012,michigan,democrat,0.542082042
+2012,michigan,republican,0.44710916
+2012,minnesota,democrat,0.526523032
+2012,minnesota,republican,0.449582011
+2012,minnesota,libertarian,0.011952076
+2012,mississippi,republican,0.552858467
+2012,mississippi,democrat,0.437893595
+2012,missouri,republican,0.537637411
+2012,missouri,democrat,0.443834835
+2012,missouri,libertarian,0.015649599
+2012,montana,republican,0.553515354
+2012,montana,democrat,0.416981374
+2012,montana,libertarian,0.029263627
+2012,nebraska,republican,0.598031922
+2012,nebraska,democrat,0.380273144
+2012,nebraska,libertarian,0.013984509
+2012,nevada,democrat,0.523562495
+2012,nevada,republican,0.456753156
+2012,nevada,libertarian,0.010806784
+2012,new hampshire,democrat,0.519796842
+2012,new hampshire,republican,0.464037965
+2012,new hampshire,libertarian,0.011550385
+2012,new jersey,democrat,0.583423549
+2012,new jersey,republican,0.406235648
+2012,new mexico,democrat,0.529927605
+2012,new mexico,republican,0.428433266
+2012,new mexico,libertarian,0.035454822
+2012,new york,democrat,0.607609842
+2012,new york,republican,0.312415973
+2012,new york,other,0.036819299
+2012,new york,other,0.020745747
+2012,north carolina,republican,0.503930641
+2012,north carolina,democrat,0.483509686
+2012,north dakota,republican,0.583156826
+2012,north dakota,democrat,0.386973109
+2012,north dakota,libertarian,0.016220133
+2012,ohio,democrat,0.506667477
+2012,ohio,republican,0.476884409
+2012,oklahoma,republican,0.667723197
+2012,oklahoma,democrat,0.332276803
+2012,oregon,democrat,0.542393267
+2012,oregon,republican,0.421498712
+2012,oregon,libertarian,0.013463032
+2012,oregon,other,0.010857501
+2012,pennsylvania,democrat,0.520768577
+2012,pennsylvania,republican,0.46680866
+2012,rhode island,democrat,0.627009589
+2012,rhode island,republican,0.352436616
+2012,south carolina,republican,0.545611313
+2012,south carolina,democrat,0.440880334
+2012,south dakota,republican,0.578893119
+2012,south dakota,democrat,0.398661408
+2012,south dakota,libertarian,0.015928425
+2012,tennessee,republican,0.594787147
+2012,tennessee,democrat,0.39075815
+2012,texas,republican,0.571669775
+2012,texas,democrat,0.413833583
+2012,texas,libertarian,0.011081017
+2012,utah,republican,0.727905331
+2012,utah,democrat,0.247496658
+2012,utah,libertarian,0.012356503
+2012,vermont,democrat,0.665705503
+2012,vermont,republican,0.309726352
+2012,vermont,libertarian,0.011650907
+2012,virginia,democrat,0.511564568
+2012,virginia,republican,0.472831029
+2012,washington,democrat,0.561633983
+2012,washington,republican,0.412946214
+2012,washington,libertarian,0.01350241
+2012,west virginia,republican,0.622958424
+2012,west virginia,democrat,0.355393042
+2012,wisconsin,democrat,0.527761625
+2012,wisconsin,republican,0.459383467
+2012,wyoming,republican,0.681935852
+2012,wyoming,democrat,0.276369061
+2012,wyoming,libertarian,0.021244431
+2016,alabama,republican,0.620830924
+2016,alabama,democrat,0.343579458
+2016,alabama,libertarian,0.020941691
+2016,alabama,other,0.010225246
+2016,alaska,republican,0.512815121
+2016,alaska,democrat,0.365508713
+2016,alaska,libertarian,0.05877128
+2016,alaska,other,0.028878748
+2016,alaska,other,0.018000176
+2016,alaska,other,0.012134033
+2016,arizona,republican,0.486716165
+2016,arizona,democrat,0.451260218
+2016,arizona,libertarian,0.041321485
+2016,arizona,other,0.013347376
+2016,arkansas,republican,0.605741022
+2016,arkansas,democrat,0.336531241
+2016,arkansas,libertarian,0.02638252
+2016,arkansas,other,0.011723501
+2016,california,democrat,0.617263996
+2016,california,republican,0.316171065
+2016,california,libertarian,0.033740916
+2016,california,other,0.0196492
+2016,colorado,democrat,0.481569804
+2016,colorado,republican,0.432513974
+2016,colorado,libertarian,0.051837984
+2016,colorado,other,0.013825165
+2016,colorado,other,0.011324643
+2016,connecticut,democrat,0.545663011
+2016,connecticut,republican,0.409269144
+2016,connecticut,libertarian,0.029591713
+2016,connecticut,other,0.013885782
+2016,delaware,democrat,0.533533368
+2016,delaware,republican,0.419228243
+2016,delaware,libertarian,0.033417876
+2016,delaware,other,0.013820512
+2016,district of columbia,democrat,0.904838839
+2016,district of columbia,republican,0.040703831
+2016,district of columbia,other,0.02095817
+2016,district of columbia,libertarian,0.015695433
+2016,district of columbia,other,0.013622331
+2016,florida,republican,0.490219414
+2016,florida,democrat,0.478233158
+2016,florida,libertarian,0.021978996
+2016,georgia,republican,0.507713261
+2016,georgia,democrat,0.456399834
+2016,georgia,libertarian,0.030453016
+2016,hawaii,democrat,0.609807981
+2016,hawaii,republican,0.294397072
+2016,hawaii,libertarian,0.036452621
+2016,hawaii,other,0.029102234
+2016,hawaii,other,0.018939186
+2016,hawaii,other,0.010300139
+2016,idaho,republican,0.592614324
+2016,idaho,democrat,0.274920138
+2016,idaho,other,0.088008055
+2016,idaho,libertarian,0.041044252
+2016,illinois,democrat,0.558253667
+2016,illinois,republican,0.387617531
+2016,illinois,libertarian,0.03785765
+2016,illinois,other,0.013872131
+2016,indiana,republican,0.569400334
+2016,indiana,democrat,0.377748397
+2016,indiana,libertarian,0.048992708
+2016,iowa,republican,0.511620613
+2016,iowa,democrat,0.417525134
+2016,iowa,libertarian,0.03780452
+2016,iowa,other,0.011335096
+2016,kansas,republican,0.566545818
+2016,kansas,democrat,0.360523707
+2016,kansas,libertarian,0.046779725
+2016,kansas,other,0.019846302
+2016,kentucky,republican,0.625196386
+2016,kentucky,democrat,0.326821883
+2016,kentucky,libertarian,0.027935467
+2016,kentucky,other,0.011839
+2016,louisiana,republican,0.580886847
+2016,louisiana,democrat,0.384495661
+2016,louisiana,libertarian,0.0187173
+2016,maine,democrat,0.463452141
+2016,maine,republican,0.434766781
+2016,maine,libertarian,0.049365714
+2016,maine,other,0.031047089
+2016,maine,other,0.018462427
+2016,maryland,democrat,0.603257442
+2016,maryland,republican,0.339093047
+2016,maryland,libertarian,0.028620006
+2016,maryland,other,0.012923134
+2016,maryland,other,0.011958888
+2016,massachusetts,democrat,0.590500651
+2016,massachusetts,republican,0.322862028
+2016,massachusetts,libertarian,0.040847976
+2016,massachusetts,other,0.015915315
+2016,massachusetts,other,0.01494249
+2016,massachusetts,other,0.014105808
+2016,michigan,republican,0.474975642
+2016,michigan,democrat,0.47274531
+2016,michigan,libertarian,0.035867017
+2016,michigan,other,0.010723058
+2016,minnesota,democrat,0.46445034
+2016,minnesota,republican,0.449251931
+2016,minnesota,libertarian,0.038363451
+2016,minnesota,other,0.018023405
+2016,minnesota,other,0.012559843
+2016,mississippi,republican,0.579410381
+2016,mississippi,democrat,0.401147883
+2016,mississippi,libertarian,0.011936095
+2016,missouri,republican,0.567723478
+2016,missouri,democrat,0.381352308
+2016,missouri,libertarian,0.03466454
+2016,montana,republican,0.564661919
+2016,montana,democrat,0.359352188
+2016,montana,libertarian,0.056694694
+2016,montana,other,0.016116443
+2016,nebraska,republican,0.587473511
+2016,nebraska,democrat,0.336987564
+2016,nebraska,libertarian,0.046132142
+2016,nebraska,other,0.019012659
+2016,nebraska,other,0.010394124
+2016,nevada,democrat,0.479178237
+2016,nevada,republican,0.455006953
+2016,nevada,libertarian,0.033218854
+2016,nevada,other,0.025647223
+2016,new hampshire,democrat,0.468262627
+2016,new hampshire,republican,0.46458667
+2016,new hampshire,libertarian,0.041350484
+2016,new hampshire,other,0.012922278
+2016,new jersey,democrat,0.554530844
+2016,new jersey,republican,0.413503867
+2016,new jersey,libertarian,0.018708348
+2016,new mexico,democrat,0.482556472
+2016,new mexico,republican,0.400425143
+2016,new mexico,libertarian,0.093372449
+2016,new mexico,other,0.012374752
+2016,new york,democrat,0.561361426
+2016,new york,republican,0.323906023
+2016,new york,other,0.037476141
+2016,new york,other,0.017949179
+2016,new york,other,0.01527233
+2016,new york,other,0.013833996
+2016,north carolina,republican,0.498280947
+2016,north carolina,democrat,0.461728662
+2016,north carolina,libertarian,0.027443687
+2016,north dakota,republican,0.629556278
+2016,north dakota,democrat,0.272267395
+2016,north dakota,libertarian,0.062243002
+2016,north dakota,other,0.01857649
+2016,north dakota,other,0.010976885
+2016,ohio,republican,0.516876507
+2016,ohio,democrat,0.435580763
+2016,ohio,other,0.036156367
+2016,oklahoma,republican,0.653228648
+2016,oklahoma,democrat,0.289316803
+2016,oklahoma,libertarian,0.057454549
+2016,oregon,democrat,0.50071852
+2016,oregon,republican,0.390940352
+2016,oregon,libertarian,0.047084048
+2016,oregon,other,0.03627277
+2016,oregon,other,0.02498431
+2016,pennsylvania,republican,0.485778858
+2016,pennsylvania,democrat,0.478536162
+2016,pennsylvania,libertarian,0.023991064
+2016,rhode island,democrat,0.544066066
+2016,rhode island,republican,0.388980575
+2016,rhode island,libertarian,0.031770313
+2016,rhode island,other,0.020336361
+2016,rhode island,other,0.013401013
+2016,south carolina,republican,0.549393327
+2016,south carolina,democrat,0.406734198
+2016,south carolina,libertarian,0.023396751
+2016,south dakota,republican,0.615307504
+2016,south dakota,democrat,0.317374282
+2016,south dakota,libertarian,0.056337191
+2016,south dakota,other,0.010981024
+2016,tennessee,republican,0.607220337
+2016,tennessee,democrat,0.347163328
+2016,tennessee,other,0.040118388
+2016,texas,republican,0.522346856
+2016,texas,democrat,0.43235258
+2016,texas,libertarian,0.031607187
+2016,utah,republican,0.455408166
+2016,utah,democrat,0.274612686
+2016,utah,other,0.22545405
+2016,utah,libertarian,0.035010523
+2016,vermont,democrat,0.557227421
+2016,vermont,republican,0.297593824
+2016,vermont,other,0.071455095
+2016,vermont,libertarian,0.031447856
+2016,vermont,other,0.021087975
+2016,vermont,other,0.01427292
+2016,virginia,democrat,0.497513528
+2016,virginia,republican,0.44427647
+2016,virginia,libertarian,0.029696552
+2016,virginia,other,0.013572023
+2016,washington,democrat,0.525386801
+2016,washington,republican,0.368326802
+2016,washington,libertarian,0.048501079
+2016,washington,other,0.032500568
+2016,washington,other,0.017611295
+2016,west virginia,republican,0.686305748
+2016,west virginia,democrat,0.26476928
+2016,west virginia,libertarian,0.032261367
+2016,west virginia,other,0.011324576
+2016,wisconsin,republican,0.472181846
+2016,wisconsin,democrat,0.464538414
+2016,wisconsin,libertarian,0.035842951
+2016,wisconsin,other,0.010440334
+2016,wyoming,republican,0.673984111
+2016,wyoming,democrat,0.216289009
+2016,wyoming,libertarian,0.051343184
+2016,wyoming,other,0.026678208
+2016,wyoming,other,0.012458074
+2016,wyoming,other,0.010282548
+2020,alabama,democrat,0.365699902
+2020,alabama,republican,0.620316432
+2020,alabama,libertarian,0.010836394
+2020,alaska,democrat,0.427719523
+2020,alaska,republican,0.528331433
+2020,alaska,libertarian,0.024746196
+2020,arizona,democrat,0.493646906
+2020,arizona,republican,0.49055981
+2020,arizona,libertarian,0.0151934
+2020,arkansas,democrat,0.34775062
+2020,arkansas,libertarian,0.010772975
+2020,arkansas,republican,0.623957299
+2020,california,democrat,0.634839469
+2020,california,republican,0.343207236
+2020,california,libertarian,0.010736317
+2020,colorado,democrat,0.550110671
+2020,colorado,republican,0.416041256
+2020,colorado,libertarian,0.015994
+2020,connecticut,democrat,0.592607315
+2020,connecticut,republican,0.391871183
+2020,connecticut,libertarian,0.011091878
+2020,delaware,democrat,0.587430058
+2020,delaware,republican,0.397748768
+2020,district of columbia,democrat,0.921496939
+2020,district of columbia,republican,0.053973214
+2020,florida,democrat,0.478614507
+2020,florida,republican,0.512198196
+2020,georgia,democrat,0.494730558
+2020,georgia,republican,0.492374739
+2020,georgia,libertarian,0.0124459
+2020,hawaii,democrat,0.631493798
+2020,hawaii,republican,0.339547142
+2020,idaho,democrat,0.330664022
+2020,idaho,republican,0.638375648
+2020,idaho,libertarian,0.018898313
+2020,illinois,democrat,0.575416454
+2020,illinois,republican,0.405534508
+2020,illinois,libertarian,0.011028643
+2020,indiana,democrat,0.409616771
+2020,indiana,republican,0.570211578
+2020,indiana,libertarian,0.019528419
+2020,iowa,republican,0.528001976
+2020,iowa,democrat,0.446472329
+2020,iowa,libertarian,0.011550293
+2020,kansas,republican,0.562125128
+2020,kansas,democrat,0.415595535
+2020,kansas,libertarian,0.022279336
+2020,kentucky,republican,0.620865719
+2020,kentucky,democrat,0.361515148
+2020,kentucky,libertarian,0.012277421
+2020,louisiana,democrat,0.398514568
+2020,louisiana,libertarian,0.010076525
+2020,louisiana,republican,0.584608824
+2020,maine,democrat,0.525255793
+2020,maine,libertarian,0.017085494
+2020,maine,republican,0.435512281
+2020,maine,other,0.010677226
+2020,maryland,republican,0.321502916
+2020,maryland,democrat,0.653606649
+2020,maryland,libertarian,0.011026562
+2020,massachusetts,democrat,0.651229837
+2020,massachusetts,republican,0.319081576
+2020,massachusetts,libertarian,0.012852087
+2020,michigan,democrat,0.506208183
+2020,michigan,republican,0.478372907
+2020,michigan,libertarian,0.010900471
+2020,minnesota,republican,0.452849424
+2020,minnesota,democrat,0.523950993
+2020,minnesota,libertarian,0.01067262
+2020,mississippi,democrat,0.410576065
+2020,mississippi,republican,0.576029546
+2020,missouri,republican,0.567996558
+2020,missouri,democrat,0.414087817
+2020,missouri,libertarian,0.013617157
+2020,montana,libertarian,0.025265292
+2020,montana,republican,0.569184692
+2020,montana,democrat,0.405493694
+2020,nebraska,republican,0.582241633
+2020,nebraska,democrat,0.391666309
+2020,nebraska,libertarian,0.021208031
+2020,nevada,libertarian,0.010518893
+2020,nevada,republican,0.476662473
+2020,nevada,democrat,0.50056782
+2020,nevada,other,0.01001796
+2020,new hampshire,libertarian,0.016416888
+2020,new hampshire,republican,0.453562595
+2020,new hampshire,democrat,0.527078253
+2020,new jersey,republican,0.413965239
+2020,new jersey,democrat,0.573341968
+2020,new mexico,libertarian,0.013620646
+2020,new mexico,democrat,0.542892858
+2020,new mexico,republican,0.434966692
+2020,new york,democrat,0.603918845
+2020,new york,republican,0.374612938
+2020,north carolina,republican,0.499343325
+2020,north carolina,democrat,0.485862118
+2020,north dakota,republican,0.651140487
+2020,north dakota,democrat,0.317567624
+2020,north dakota,libertarian,0.025960494
+2020,ohio,republican,0.532713001
+2020,ohio,democrat,0.452393383
+2020,ohio,libertarian,0.011409439
+2020,oklahoma,republican,0.653732718
+2020,oklahoma,democrat,0.322861743
+2020,oklahoma,libertarian,0.015846105
+2020,oregon,republican,0.40367246
+2020,oregon,democrat,0.564533187
+2020,oregon,libertarian,0.017513217
+2020,pennsylvania,republican,0.48843612
+2020,pennsylvania,democrat,0.500084957
+2020,pennsylvania,libertarian,0.011478923
+2020,rhode island,democrat,0.594761988
+2020,rhode island,republican,0.386703805
+2020,south carolina,republican,0.550934809
+2020,south carolina,libertarian,0.011103792
+2020,south carolina,democrat,0.434168385
+2020,south dakota,republican,0.617693897
+2020,south dakota,democrat,0.356052521
+2020,south dakota,libertarian,0.026253582
+2020,tennessee,republican,0.606602942
+2020,tennessee,democrat,0.374514343
+2020,texas,republican,0.520576036
+2020,texas,democrat,0.464790099
+2020,texas,libertarian,0.011157081
+2020,utah,democrat,0.376460486
+2020,utah,libertarian,0.02583302
+2020,utah,republican,0.58129839
+2020,vermont,democrat,0.654557806
+2020,vermont,republican,0.303810571
+2020,virginia,democrat,0.541095172
+2020,virginia,republican,0.439955037
+2020,virginia,libertarian,0.014518698
+2020,washington,democrat,0.579703011
+2020,washington,republican,0.387669777
+2020,washington,libertarian,0.019693558
+2020,west virginia,democrat,0.296965212
+2020,west virginia,republican,0.686315519
+2020,west virginia,libertarian,0.013448654
+2020,wisconsin,democrat,0.494495369
+2020,wisconsin,republican,0.488224373
+2020,wisconsin,other,0.011670868
+2020,wyoming,democrat,0.263878666
+2020,wyoming,republican,0.694997899
+2020,wyoming,libertarian,0.020710728

@@ -1,0 +1,37 @@
+---
+title: 'Exploratory Data analysis and Visualization(Continuation)'
+author: R package build
+date: '2022-04-29'
+slug: []
+categories: []
+tags: []
+description: ~
+toc: yes
+authors: []
+series: []
+lastmod: '2022-04-29T20:39:25-04:00'
+featuredVideo: ~
+featuredImage: ~
+---
+
+#Exploratory Data analysis 
+
+Exploratory Data Analysis involves the critical process of conducting initial investigations on data with the goal of discovering patterns, detecting anomalies, testing hypotheses, and testing assumptions using summary statistics and graphs. Our previous goal was to examine only the 2020 dataset for the following three attributes:
+1. Relations among the four authoritarian categories: views on child rearing, views on women, international relations, and rural areas.
+2. Comprehensive model of voting behavior based on aggregated scores, including state level fixed effects.
+3. State-level examination of each of the four primary authoritarian indicator classifications.
+
+We have instead decided to extend the analysis to the period between 2000 and 2020 excluding the midterm elections.
+
+In order to gain a better understanding of the rise and proliferation of authoritarian views in the United States, we are preparing a summary dataset with observations by state and year. To create our panel dataset, first we explored the variables in the selected years that corresponded to our current set and bound them together.
+
+To discover relationships between variables and develop generalizable prediction rules, we will use time series model and nonparametric model. 
+Time Series Modeling and Time Series Analysis are powerful forecasting tools. By analyzing time-based data (years, days, hours, minutes), one can uncover hidden insights for making informed decisions. They are very useful models to study serially correlated data.
+Regression using nonparametric methods is a flexible alternative to classical (parametric) methods. The objective is to find a balance between fitting the observed dataset (model fit) and smoothing the function estimate (model parsimony).
+
+#Data visualization and polishing
+Due to the fact that we are analyzing national or geographical data, we will use R packages such as tap, usmap, mapview, and ggplot2 to analyze choropleth plots, bubble plots and more. Using these plots could help in drawing better conclusions since they are intuitive, interactive, and easy to understand.
+A thematic map shows spatial distributions of data, such as demographics, socioeconomics, and culture. The best known thematic map type is the choropleth, in which regions are colored according to the distribution of a data variable. The R package tmap offers a coherent plotting system for thematic maps that is based on the layered grammar of graphics. 
+`usmap::package` provides some built-in regions based on the US Census Bureau Regions and Divisions. The `usmap::plot_usmap` function plots the basic US map easily.
+With mapview, spatial data can be visualized interactively and very quickly. 
+By using proportional symbols, a bubble map shows how a variable differs across different geographic areas. As a general rule, the symbol used is a circle, whose diameter varies depending on the variable.

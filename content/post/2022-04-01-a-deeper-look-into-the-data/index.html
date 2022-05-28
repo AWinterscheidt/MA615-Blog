@@ -1,0 +1,2003 @@
+---
+title: A Deeper Look into the Data
+author: 'A Team Has No Name'
+date: '2022-04-01'
+slug: []
+categories: []
+tags: []
+description: null
+toc: yes
+authors: []
+series: []
+lastmod: '2022-04-01T17:21:51-04:00'
+featuredVideo: null
+featuredImage: null
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+
+</div>
+
+<pre class="r"><code>source(here::here(&quot;static&quot;, &quot;load_and_clean_data.R&quot;), echo=FALSE)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.6     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.1     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<p>First, a quick note on blog post #2: a few variables were improperly coded. I’ve corrected them and adjust the analysis, which is now much more in line with theory.</p>
+<div id="possible-goals" class="section level1">
+<h1>Possible Goals</h1>
+<p>Future goals for this project likely fall into one of three categories: understanding regional relationships between authoritarianism and its indicators, breaking down the aggregate score to examine more micro-level beliefs and how they relate to on another, and exploring how socio-demographic traits and voting behavior correlate with authoritarianism. Our previous post touched briefly on the first and last of those questions. In this post we will present three models:</p>
+<ol style="list-style-type: decimal">
+<li><p>The relationship between the four authoritarian categories: child rearing beliefs, beliefs on women, foreign relations, and rural areas.</p></li>
+<li><p>A comprehensive model of voting behavior on aggregated scores, including state-level fixed effects.</p></li>
+<li><p>A state-level examination of each of the four primary authoritarian indicator classifications.</p></li>
+</ol>
+</div>
+<div id="model-1" class="section level1">
+<h1>Model 1</h1>
+<pre class="r"><code>m1.a&lt;- lm(child_score~women_score+foreign_score+rural_score, data=ANES_normalized)
+m1.b&lt;- lm(women_score~child_score+foreign_score+rural_score, data=ANES_normalized)
+m1.c&lt;- lm(foreign_score~women_score+child_score+rural_score, data=ANES_normalized)
+m1.d&lt;- lm(rural_score~women_score+foreign_score+child_score, data=ANES_normalized)
+
+m1.a%&gt;%broom::tidy()%&gt;%knitr::kable(format=&quot;markdown&quot;)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.2746598</td>
+<td align="right">0.0103393</td>
+<td align="right">26.564610</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="right">0.2396386</td>
+<td align="right">0.0176517</td>
+<td align="right">13.575942</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="right">0.1170959</td>
+<td align="right">0.0114971</td>
+<td align="right">10.184827</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="right">0.1226056</td>
+<td align="right">0.0127359</td>
+<td align="right">9.626782</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>m1.b%&gt;%broom::tidy()%&gt;%knitr::kable(format=&quot;markdown&quot;)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.2237693</td>
+<td align="right">0.0066723</td>
+<td align="right">33.53695</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="right">0.1051358</td>
+<td align="right">0.0077443</td>
+<td align="right">13.57594</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="right">0.1778792</td>
+<td align="right">0.0073756</td>
+<td align="right">24.11742</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="right">0.1294133</td>
+<td align="right">0.0083510</td>
+<td align="right">15.49677</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>m1.c%&gt;%broom::tidy()%&gt;%knitr::kable(format=&quot;markdown&quot;)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.1739112</td>
+<td align="right">0.0108906</td>
+<td align="right">15.968865</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="right">0.4239677</td>
+<td align="right">0.0175793</td>
+<td align="right">24.117416</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="right">0.1224456</td>
+<td align="right">0.0120224</td>
+<td align="right">10.184827</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="right">0.1144850</td>
+<td align="right">0.0130376</td>
+<td align="right">8.781124</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>m1.d%&gt;%broom::tidy()%&gt;%knitr::kable(format=&quot;markdown&quot;)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.4363579</td>
+<td align="right">0.0085769</td>
+<td align="right">50.875929</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="right">0.2517494</td>
+<td align="right">0.0162453</td>
+<td align="right">15.496771</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="right">0.0934395</td>
+<td align="right">0.0106409</td>
+<td align="right">8.781124</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="right">0.1046391</td>
+<td align="right">0.0108696</td>
+<td align="right">9.626782</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p>From these models, we see strong, positive correlations between all four categories, indicating that authoritarian beliefs are intrapersonally consistent.</p>
+</div>
+<div id="model-2" class="section level1">
+<h1>Model 2</h1>
+<p>Next, let us examine the Voting Behavior + Demographics model:</p>
+<pre class="r"><code>ANES_normalized&lt;-ANES_normalized%&gt;%
+  mutate(Religious = ifelse(Religion != &quot;Not Religious&quot;&amp;!is.na(Religion),1,ifelse(!is.na(Religion),0,NA)))
+m2&lt;-lm(score ~ party + Religious +  President, data=ANES_normalized,na.rm=TRUE)</code></pre>
+<pre><code>## Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :
+##  extra argument &#39;na.rm&#39; will be disregarded</code></pre>
+<pre class="r"><code>m2%&gt;%broom::tidy()%&gt;%knitr::kable(format=&quot;markdown&quot;)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.4149697</td>
+<td align="right">0.0043336</td>
+<td align="right">95.7572284</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">partyIndependent</td>
+<td align="right">0.0109150</td>
+<td align="right">0.0051331</td>
+<td align="right">2.1263948</td>
+<td align="right">0.0335451</td>
+</tr>
+<tr class="odd">
+<td align="left">partyRepublican</td>
+<td align="right">0.0379816</td>
+<td align="right">0.0060109</td>
+<td align="right">6.3188195</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Religious</td>
+<td align="right">0.0508229</td>
+<td align="right">0.0046833</td>
+<td align="right">10.8518221</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">PresidentDon’t Know</td>
+<td align="right">0.1651147</td>
+<td align="right">0.1090407</td>
+<td align="right">1.5142477</td>
+<td align="right">0.1300597</td>
+</tr>
+<tr class="even">
+<td align="left">PresidentHawkins</td>
+<td align="right">0.0347841</td>
+<td align="right">0.0329783</td>
+<td align="right">1.0547571</td>
+<td align="right">0.2916144</td>
+</tr>
+<tr class="odd">
+<td align="left">PresidentJorgensen</td>
+<td align="right">0.0735578</td>
+<td align="right">0.0196078</td>
+<td align="right">3.7514544</td>
+<td align="right">0.0001789</td>
+</tr>
+<tr class="even">
+<td align="left">PresidentOther</td>
+<td align="right">0.0520168</td>
+<td align="right">0.0216120</td>
+<td align="right">2.4068478</td>
+<td align="right">0.0161460</td>
+</tr>
+<tr class="odd">
+<td align="left">PresidentRefused</td>
+<td align="right">0.0751292</td>
+<td align="right">0.0386749</td>
+<td align="right">1.9425808</td>
+<td align="right">0.0521526</td>
+</tr>
+<tr class="even">
+<td align="left">PresidentRepublican</td>
+<td align="right">-0.0146815</td>
+<td align="right">0.1089366</td>
+<td align="right">-0.1347707</td>
+<td align="right">0.8928015</td>
+</tr>
+<tr class="odd">
+<td align="left">PresidentTrump</td>
+<td align="right">0.1228143</td>
+<td align="right">0.0053937</td>
+<td align="right">22.7697485</td>
+<td align="right">0.0000000</td>
+</tr>
+</tbody>
+</table>
+<p>From this we see That for a non-religious, democratic, Biden voter, the average authoritarianism is 0.414. Holding ass other factors the same, Republicans are 0.038 points more authoritarian, which is statistically significant, Religious people are a statistically significant 0.051 points more authoritarian, and Trump voters are 0.1228143 statistically significant points more authoritarian. Interestingly, Jorgensen voters (the libertarian candidate) have a statistically significant increase in authoritarianism over Biden voters of 0.074 points, a (very unsurprising) oxymoronical twist on a group whose name is eponymous from the literal antithesis of authoritarianism.</p>
+</div>
+<div id="model-3" class="section level1">
+<h1>Model 3</h1>
+<p>In our third and final model, we explore state-level divisions in authoritarian traits.</p>
+<pre class="r"><code>m3&lt;-lm(cbind(child_score,women_score,foreign_score,rural_score)~state,data=ANES_normalized)
+m3%&gt;%broom::tidy()%&gt;%knitr::kable(format=&quot;markdown&quot;)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">response</th>
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">(Intercept)</td>
+<td align="right">0.5798969</td>
+<td align="right">0.0224814</td>
+<td align="right">25.7945063</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statealaska</td>
+<td align="right">0.0138531</td>
+<td align="right">0.0814467</td>
+<td align="right">0.1700879</td>
+<td align="right">0.8649463</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statearizona</td>
+<td align="right">-0.0671232</td>
+<td align="right">0.0293813</td>
+<td align="right">-2.2845535</td>
+<td align="right">0.0223712</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statearkansas</td>
+<td align="right">0.0051031</td>
+<td align="right">0.0385476</td>
+<td align="right">0.1323842</td>
+<td align="right">0.8946845</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statecalifornia</td>
+<td align="right">-0.0979946</td>
+<td align="right">0.0242476</td>
+<td align="right">-4.0414066</td>
+<td align="right">0.0000537</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statecelaware</td>
+<td align="right">-0.0414354</td>
+<td align="right">0.0653956</td>
+<td align="right">-0.6336114</td>
+<td align="right">0.5263568</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statecolorado</td>
+<td align="right">-0.1055818</td>
+<td align="right">0.0290035</td>
+<td align="right">-3.6403148</td>
+<td align="right">0.0002744</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">stateconnecticut</td>
+<td align="right">-0.0995398</td>
+<td align="right">0.0347242</td>
+<td align="right">-2.8665784</td>
+<td align="right">0.0041627</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">stateflorida</td>
+<td align="right">-0.0392719</td>
+<td align="right">0.0250595</td>
+<td align="right">-1.5671488</td>
+<td align="right">0.1171287</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">stategeorgia</td>
+<td align="right">-0.0399754</td>
+<td align="right">0.0276060</td>
+<td align="right">-1.4480719</td>
+<td align="right">0.1476452</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statehawaii</td>
+<td align="right">-0.0298969</td>
+<td align="right">0.0496631</td>
+<td align="right">-0.6019949</td>
+<td align="right">0.5471986</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">stateidaho</td>
+<td align="right">-0.1071696</td>
+<td align="right">0.0373735</td>
+<td align="right">-2.8675284</td>
+<td align="right">0.0041502</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">stateillinois</td>
+<td align="right">-0.0709041</td>
+<td align="right">0.0261106</td>
+<td align="right">-2.7155297</td>
+<td align="right">0.0066345</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">stateindiana</td>
+<td align="right">-0.0845553</td>
+<td align="right">0.0284591</td>
+<td align="right">-2.9711208</td>
+<td align="right">0.0029780</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">stateiowa</td>
+<td align="right">-0.0579671</td>
+<td align="right">0.0369527</td>
+<td align="right">-1.5686821</td>
+<td align="right">0.1167708</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statekansas</td>
+<td align="right">-0.0711760</td>
+<td align="right">0.0327944</td>
+<td align="right">-2.1703688</td>
+<td align="right">0.0300151</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statekentucky</td>
+<td align="right">-0.0764565</td>
+<td align="right">0.0309061</td>
+<td align="right">-2.4738349</td>
+<td align="right">0.0133925</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statelouisiana</td>
+<td align="right">-0.0270123</td>
+<td align="right">0.0336740</td>
+<td align="right">-0.8021695</td>
+<td align="right">0.4224843</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statemaine</td>
+<td align="right">-0.0991277</td>
+<td align="right">0.0488978</td>
+<td align="right">-2.0272414</td>
+<td align="right">0.0426785</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statemaryland</td>
+<td align="right">-0.0719855</td>
+<td align="right">0.0285605</td>
+<td align="right">-2.5204611</td>
+<td align="right">0.0117439</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statemassachusetts</td>
+<td align="right">-0.1187689</td>
+<td align="right">0.0283610</td>
+<td align="right">-4.1877494</td>
+<td align="right">0.0000285</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statemichigan</td>
+<td align="right">-0.0539823</td>
+<td align="right">0.0265462</td>
+<td align="right">-2.0335183</td>
+<td align="right">0.0420408</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">stateminnesota</td>
+<td align="right">-0.0916419</td>
+<td align="right">0.0288867</td>
+<td align="right">-3.1724586</td>
+<td align="right">0.0015186</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statemississippi</td>
+<td align="right">0.0351825</td>
+<td align="right">0.0358272</td>
+<td align="right">0.9820032</td>
+<td align="right">0.3261349</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statemissouri</td>
+<td align="right">-0.0575755</td>
+<td align="right">0.0292505</td>
+<td align="right">-1.9683568</td>
+<td align="right">0.0490695</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statemontana</td>
+<td align="right">-0.0404232</td>
+<td align="right">0.0555489</td>
+<td align="right">-0.7277047</td>
+<td align="right">0.4668206</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statenebraska</td>
+<td align="right">-0.0354525</td>
+<td align="right">0.0399357</td>
+<td align="right">-0.8877382</td>
+<td align="right">0.3747145</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statenevada</td>
+<td align="right">-0.1105092</td>
+<td align="right">0.0388063</td>
+<td align="right">-2.8477135</td>
+<td align="right">0.0044173</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statenew hampshire</td>
+<td align="right">-0.0736469</td>
+<td align="right">0.0416058</td>
+<td align="right">-1.7701116</td>
+<td align="right">0.0767555</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statenew jersey</td>
+<td align="right">-0.0598352</td>
+<td align="right">0.0284260</td>
+<td align="right">-2.1049445</td>
+<td align="right">0.0353345</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statenew mexico</td>
+<td align="right">-0.0907665</td>
+<td align="right">0.0396381</td>
+<td align="right">-2.2898803</td>
+<td align="right">0.0220602</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statenew york</td>
+<td align="right">-0.0806831</td>
+<td align="right">0.0256823</td>
+<td align="right">-3.1415817</td>
+<td align="right">0.0016879</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statenorth carolina</td>
+<td align="right">-0.0376672</td>
+<td align="right">0.0269490</td>
+<td align="right">-1.3977215</td>
+<td align="right">0.1622445</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statenorth dakota</td>
+<td align="right">-0.0986469</td>
+<td align="right">0.0543753</td>
+<td align="right">-1.8141867</td>
+<td align="right">0.0696952</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">stateohio</td>
+<td align="right">-0.0445195</td>
+<td align="right">0.0262757</td>
+<td align="right">-1.6943215</td>
+<td align="right">0.0902522</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">stateoklahoma</td>
+<td align="right">0.0005629</td>
+<td align="right">0.0326944</td>
+<td align="right">0.0172159</td>
+<td align="right">0.9862649</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">stateoregon</td>
+<td align="right">-0.1206578</td>
+<td align="right">0.0322226</td>
+<td align="right">-3.7445080</td>
+<td align="right">0.0001823</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statepennsylvania</td>
+<td align="right">-0.0398613</td>
+<td align="right">0.0260745</td>
+<td align="right">-1.5287461</td>
+<td align="right">0.1263761</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">staterhode island</td>
+<td align="right">-0.0632302</td>
+<td align="right">0.0614309</td>
+<td align="right">-1.0292903</td>
+<td align="right">0.3033816</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statesouth carolina</td>
+<td align="right">-0.0067837</td>
+<td align="right">0.0311113</td>
+<td align="right">-0.2180459</td>
+<td align="right">0.8274002</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statesouth dakota</td>
+<td align="right">0.0138531</td>
+<td align="right">0.0597452</td>
+<td align="right">0.2318697</td>
+<td align="right">0.8166466</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statetennessee</td>
+<td align="right">-0.0482068</td>
+<td align="right">0.0291661</td>
+<td align="right">-1.6528356</td>
+<td align="right">0.0984127</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statetexas</td>
+<td align="right">-0.0147870</td>
+<td align="right">0.0247621</td>
+<td align="right">-0.5971634</td>
+<td align="right">0.5504191</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">stateutah</td>
+<td align="right">-0.1048969</td>
+<td align="right">0.0347242</td>
+<td align="right">-3.0208551</td>
+<td align="right">0.0025304</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statevermont</td>
+<td align="right">-0.1923969</td>
+<td align="right">0.0543753</td>
+<td align="right">-3.5383157</td>
+<td align="right">0.0004055</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statevirginia</td>
+<td align="right">-0.0522023</td>
+<td align="right">0.0282662</td>
+<td align="right">-1.8468104</td>
+<td align="right">0.0648201</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statewashington</td>
+<td align="right">-0.1341138</td>
+<td align="right">0.0282975</td>
+<td align="right">-4.7394286</td>
+<td align="right">0.0000022</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statewashington dc</td>
+<td align="right">-0.1493414</td>
+<td align="right">0.0432114</td>
+<td align="right">-3.4560653</td>
+<td align="right">0.0005516</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statewest virginia</td>
+<td align="right">0.0013531</td>
+<td align="right">0.0416058</td>
+<td align="right">0.0325217</td>
+<td align="right">0.9740570</td>
+</tr>
+<tr class="even">
+<td align="left">child_score</td>
+<td align="left">statewisconsin</td>
+<td align="right">-0.0406812</td>
+<td align="right">0.0287374</td>
+<td align="right">-1.4156181</td>
+<td align="right">0.1569353</td>
+</tr>
+<tr class="odd">
+<td align="left">child_score</td>
+<td align="left">statewyoming</td>
+<td align="right">-0.0084683</td>
+<td align="right">0.0866545</td>
+<td align="right">-0.0977253</td>
+<td align="right">0.9221535</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">(Intercept)</td>
+<td align="right">0.4802577</td>
+<td align="right">0.0155914</td>
+<td align="right">30.8028273</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statealaska</td>
+<td align="right">0.0278673</td>
+<td align="right">0.0564850</td>
+<td align="right">0.4933566</td>
+<td align="right">0.6217773</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statearizona</td>
+<td align="right">-0.0202942</td>
+<td align="right">0.0203766</td>
+<td align="right">-0.9959582</td>
+<td align="right">0.3193076</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statearkansas</td>
+<td align="right">-0.0132577</td>
+<td align="right">0.0267336</td>
+<td align="right">-0.4959202</td>
+<td align="right">0.6199675</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statecalifornia</td>
+<td align="right">-0.0446096</td>
+<td align="right">0.0168163</td>
+<td align="right">-2.6527638</td>
+<td align="right">0.0080030</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statecelaware</td>
+<td align="right">-0.0342962</td>
+<td align="right">0.0453533</td>
+<td align="right">-0.7562014</td>
+<td align="right">0.4495559</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statecolorado</td>
+<td align="right">-0.0433057</td>
+<td align="right">0.0201146</td>
+<td align="right">-2.1529520</td>
+<td align="right">0.0313592</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">stateconnecticut</td>
+<td align="right">-0.0865434</td>
+<td align="right">0.0240820</td>
+<td align="right">-3.5936947</td>
+<td align="right">0.0003284</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">stateflorida</td>
+<td align="right">-0.0152015</td>
+<td align="right">0.0173793</td>
+<td align="right">-0.8746896</td>
+<td align="right">0.3817752</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">stategeorgia</td>
+<td align="right">-0.0039227</td>
+<td align="right">0.0191454</td>
+<td align="right">-0.2048880</td>
+<td align="right">0.8376660</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statehawaii</td>
+<td align="right">-0.0045577</td>
+<td align="right">0.0344424</td>
+<td align="right">-0.1323290</td>
+<td align="right">0.8947282</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">stateidaho</td>
+<td align="right">-0.0211668</td>
+<td align="right">0.0259194</td>
+<td align="right">-0.8166415</td>
+<td align="right">0.4141633</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">stateillinois</td>
+<td align="right">-0.0406444</td>
+<td align="right">0.0181083</td>
+<td align="right">-2.2445224</td>
+<td align="right">0.0248324</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">stateindiana</td>
+<td align="right">-0.0283012</td>
+<td align="right">0.0197370</td>
+<td align="right">-1.4339180</td>
+<td align="right">0.1516439</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">stateiowa</td>
+<td align="right">-0.0366174</td>
+<td align="right">0.0256275</td>
+<td align="right">-1.4288300</td>
+<td align="right">0.1531012</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statekansas</td>
+<td align="right">-0.0170601</td>
+<td align="right">0.0227436</td>
+<td align="right">-0.7501021</td>
+<td align="right">0.4532204</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statekentucky</td>
+<td align="right">0.0217606</td>
+<td align="right">0.0214340</td>
+<td align="right">1.0152361</td>
+<td align="right">0.3100311</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statelouisiana</td>
+<td align="right">-0.0279821</td>
+<td align="right">0.0233537</td>
+<td align="right">-1.1981871</td>
+<td align="right">0.2308879</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statemaine</td>
+<td align="right">-0.0570847</td>
+<td align="right">0.0339117</td>
+<td align="right">-1.6833317</td>
+<td align="right">0.0923590</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statemaryland</td>
+<td align="right">-0.0781375</td>
+<td align="right">0.0198073</td>
+<td align="right">-3.9448824</td>
+<td align="right">0.0000807</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statemassachusetts</td>
+<td align="right">-0.0820565</td>
+<td align="right">0.0196690</td>
+<td align="right">-4.1718717</td>
+<td align="right">0.0000306</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statemichigan</td>
+<td align="right">-0.0353898</td>
+<td align="right">0.0184104</td>
+<td align="right">-1.9222744</td>
+<td align="right">0.0546150</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">stateminnesota</td>
+<td align="right">-0.0575564</td>
+<td align="right">0.0200336</td>
+<td align="right">-2.8729981</td>
+<td align="right">0.0040792</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statemississippi</td>
+<td align="right">0.0130359</td>
+<td align="right">0.0248470</td>
+<td align="right">0.5246482</td>
+<td align="right">0.5998457</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statemissouri</td>
+<td align="right">-0.0176863</td>
+<td align="right">0.0202859</td>
+<td align="right">-0.8718527</td>
+<td align="right">0.3833210</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statemontana</td>
+<td align="right">0.0054002</td>
+<td align="right">0.0385244</td>
+<td align="right">0.1401751</td>
+<td align="right">0.8885260</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statenebraska</td>
+<td align="right">-0.0360911</td>
+<td align="right">0.0276963</td>
+<td align="right">-1.3031008</td>
+<td align="right">0.1925866</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statenevada</td>
+<td align="right">0.0202015</td>
+<td align="right">0.0269130</td>
+<td align="right">0.7506205</td>
+<td align="right">0.4529083</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statenew hampshire</td>
+<td align="right">-0.0682577</td>
+<td align="right">0.0288545</td>
+<td align="right">-2.3655808</td>
+<td align="right">0.0180311</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statenew jersey</td>
+<td align="right">-0.0541158</td>
+<td align="right">0.0197141</td>
+<td align="right">-2.7450330</td>
+<td align="right">0.0060671</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statenew mexico</td>
+<td align="right">-0.0596056</td>
+<td align="right">0.0274899</td>
+<td align="right">-2.1682725</td>
+<td align="right">0.0301742</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statenew york</td>
+<td align="right">-0.0643065</td>
+<td align="right">0.0178112</td>
+<td align="right">-3.6104424</td>
+<td align="right">0.0003080</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statenorth carolina</td>
+<td align="right">-0.0328703</td>
+<td align="right">0.0186897</td>
+<td align="right">-1.7587399</td>
+<td align="right">0.0786688</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statenorth dakota</td>
+<td align="right">0.0538673</td>
+<td align="right">0.0377105</td>
+<td align="right">1.4284440</td>
+<td align="right">0.1532122</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">stateohio</td>
+<td align="right">-0.0135030</td>
+<td align="right">0.0182228</td>
+<td align="right">-0.7409956</td>
+<td align="right">0.4587229</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">stateoklahoma</td>
+<td align="right">-0.0111485</td>
+<td align="right">0.0226743</td>
+<td align="right">-0.4916825</td>
+<td align="right">0.6229604</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">stateoregon</td>
+<td align="right">-0.0465621</td>
+<td align="right">0.0223471</td>
+<td align="right">-2.0835868</td>
+<td align="right">0.0372368</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statepennsylvania</td>
+<td align="right">-0.0333182</td>
+<td align="right">0.0180833</td>
+<td align="right">-1.8424911</td>
+<td align="right">0.0654489</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">staterhode island</td>
+<td align="right">-0.0710911</td>
+<td align="right">0.0426037</td>
+<td align="right">-1.6686600</td>
+<td align="right">0.0952330</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statesouth carolina</td>
+<td align="right">-0.0098804</td>
+<td align="right">0.0215764</td>
+<td align="right">-0.4579251</td>
+<td align="right">0.6470216</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statesouth dakota</td>
+<td align="right">0.0475548</td>
+<td align="right">0.0414346</td>
+<td align="right">1.1477071</td>
+<td align="right">0.2511318</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statetennessee</td>
+<td align="right">-0.0190077</td>
+<td align="right">0.0202273</td>
+<td align="right">-0.9397054</td>
+<td align="right">0.3474037</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statetexas</td>
+<td align="right">0.0024291</td>
+<td align="right">0.0171731</td>
+<td align="right">0.1414472</td>
+<td align="right">0.8875210</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">stateutah</td>
+<td align="right">-0.0120792</td>
+<td align="right">0.0240820</td>
+<td align="right">-0.5015841</td>
+<td align="right">0.6159771</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statevermont</td>
+<td align="right">-0.1432577</td>
+<td align="right">0.0377105</td>
+<td align="right">-3.7988868</td>
+<td align="right">0.0001467</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statevirginia</td>
+<td align="right">-0.0397937</td>
+<td align="right">0.0196032</td>
+<td align="right">-2.0299548</td>
+<td align="right">0.0424018</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statewashington</td>
+<td align="right">-0.0521704</td>
+<td align="right">0.0196249</td>
+<td align="right">-2.6583760</td>
+<td align="right">0.0078711</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statewashington dc</td>
+<td align="right">-0.1102577</td>
+<td align="right">0.0299680</td>
+<td align="right">-3.6791772</td>
+<td align="right">0.0002359</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statewest virginia</td>
+<td align="right">0.0303673</td>
+<td align="right">0.0288545</td>
+<td align="right">1.0524262</td>
+<td align="right">0.2926432</td>
+</tr>
+<tr class="odd">
+<td align="left">women_score</td>
+<td align="left">statewisconsin</td>
+<td align="right">-0.0457643</td>
+<td align="right">0.0199300</td>
+<td align="right">-2.2962462</td>
+<td align="right">0.0216935</td>
+</tr>
+<tr class="even">
+<td align="left">women_score</td>
+<td align="left">statewyoming</td>
+<td align="right">-0.0399006</td>
+<td align="right">0.0600968</td>
+<td align="right">-0.6639385</td>
+<td align="right">0.5067532</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">(Intercept)</td>
+<td align="right">0.5979381</td>
+<td align="right">0.0237762</td>
+<td align="right">25.1486515</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statealaska</td>
+<td align="right">-0.0823131</td>
+<td align="right">0.0861373</td>
+<td align="right">-0.9556040</td>
+<td align="right">0.3393079</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statearizona</td>
+<td align="right">-0.0550549</td>
+<td align="right">0.0310734</td>
+<td align="right">-1.7717687</td>
+<td align="right">0.0764799</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statearkansas</td>
+<td align="right">-0.0429381</td>
+<td align="right">0.0407676</td>
+<td align="right">-1.0532417</td>
+<td align="right">0.2922694</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statecalifornia</td>
+<td align="right">-0.1383422</td>
+<td align="right">0.0256441</td>
+<td align="right">-5.3946997</td>
+<td align="right">0.0000001</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statecelaware</td>
+<td align="right">-0.0210151</td>
+<td align="right">0.0691618</td>
+<td align="right">-0.3038537</td>
+<td align="right">0.7612491</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statecolorado</td>
+<td align="right">-0.1279039</td>
+<td align="right">0.0306738</td>
+<td align="right">-4.1698028</td>
+<td align="right">0.0000309</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">stateconnecticut</td>
+<td align="right">-0.1193667</td>
+<td align="right">0.0367241</td>
+<td align="right">-3.2503675</td>
+<td align="right">0.0011584</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">stateflorida</td>
+<td align="right">-0.0741881</td>
+<td align="right">0.0265027</td>
+<td align="right">-2.7992698</td>
+<td align="right">0.0051370</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">stategeorgia</td>
+<td align="right">-0.0488544</td>
+<td align="right">0.0291958</td>
+<td align="right">-1.6733329</td>
+<td align="right">0.0943100</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statehawaii</td>
+<td align="right">-0.1779381</td>
+<td align="right">0.0525232</td>
+<td align="right">-3.3877986</td>
+<td align="right">0.0007088</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">stateidaho</td>
+<td align="right">-0.0956654</td>
+<td align="right">0.0395259</td>
+<td align="right">-2.4203210</td>
+<td align="right">0.0155341</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">stateillinois</td>
+<td align="right">-0.1136756</td>
+<td align="right">0.0276143</td>
+<td align="right">-4.1165395</td>
+<td align="right">0.0000389</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">stateindiana</td>
+<td align="right">-0.0994909</td>
+<td align="right">0.0300981</td>
+<td align="right">-3.3055601</td>
+<td align="right">0.0009530</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">stateiowa</td>
+<td align="right">-0.0584645</td>
+<td align="right">0.0390809</td>
+<td align="right">-1.4959857</td>
+<td align="right">0.1347060</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statekansas</td>
+<td align="right">-0.0586940</td>
+<td align="right">0.0346831</td>
+<td align="right">-1.6922929</td>
+<td align="right">0.0906382</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statekentucky</td>
+<td align="right">-0.0451859</td>
+<td align="right">0.0326860</td>
+<td align="right">-1.3824217</td>
+<td align="right">0.1668898</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statelouisiana</td>
+<td align="right">-0.0498612</td>
+<td align="right">0.0356134</td>
+<td align="right">-1.4000696</td>
+<td align="right">0.1615403</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statemaine</td>
+<td align="right">-0.1652458</td>
+<td align="right">0.0517139</td>
+<td align="right">-3.1953842</td>
+<td align="right">0.0014031</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statemaryland</td>
+<td align="right">-0.1232546</td>
+<td align="right">0.0302053</td>
+<td align="right">-4.0805625</td>
+<td align="right">0.0000455</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statemassachusetts</td>
+<td align="right">-0.1345235</td>
+<td align="right">0.0299944</td>
+<td align="right">-4.4849572</td>
+<td align="right">0.0000074</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statemichigan</td>
+<td align="right">-0.0745642</td>
+<td align="right">0.0280751</td>
+<td align="right">-2.6558838</td>
+<td align="right">0.0079294</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">stateminnesota</td>
+<td align="right">-0.1021328</td>
+<td align="right">0.0305503</td>
+<td align="right">-3.3430984</td>
+<td align="right">0.0008332</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statemississippi</td>
+<td align="right">-0.0542874</td>
+<td align="right">0.0378906</td>
+<td align="right">-1.4327400</td>
+<td align="right">0.1519803</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statemissouri</td>
+<td align="right">-0.0970453</td>
+<td align="right">0.0309351</td>
+<td align="right">-3.1370594</td>
+<td align="right">0.0017142</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statemontana</td>
+<td align="right">-0.0979381</td>
+<td align="right">0.0587481</td>
+<td align="right">-1.6670864</td>
+<td align="right">0.0955455</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statenebraska</td>
+<td align="right">-0.0868270</td>
+<td align="right">0.0422357</td>
+<td align="right">-2.0557746</td>
+<td align="right">0.0398442</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statenevada</td>
+<td align="right">-0.1234483</td>
+<td align="right">0.0410412</td>
+<td align="right">-3.0079135</td>
+<td align="right">0.0026406</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statenew hampshire</td>
+<td align="right">-0.1573131</td>
+<td align="right">0.0440019</td>
+<td align="right">-3.5751409</td>
+<td align="right">0.0003526</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statenew jersey</td>
+<td align="right">-0.0948517</td>
+<td align="right">0.0300631</td>
+<td align="right">-3.1550867</td>
+<td align="right">0.0016118</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statenew mexico</td>
+<td align="right">-0.1115251</td>
+<td align="right">0.0419209</td>
+<td align="right">-2.6603695</td>
+<td align="right">0.0078247</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statenew york</td>
+<td align="right">-0.1160199</td>
+<td align="right">0.0271614</td>
+<td align="right">-4.2715005</td>
+<td align="right">0.0000197</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statenorth carolina</td>
+<td align="right">-0.0675327</td>
+<td align="right">0.0285010</td>
+<td align="right">-2.3694849</td>
+<td align="right">0.0178420</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statenorth dakota</td>
+<td align="right">-0.0479381</td>
+<td align="right">0.0575068</td>
+<td align="right">-0.8336077</td>
+<td align="right">0.4045328</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">stateohio</td>
+<td align="right">-0.0644476</td>
+<td align="right">0.0277890</td>
+<td align="right">-2.3191759</td>
+<td align="right">0.0204164</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">stateoklahoma</td>
+<td align="right">-0.0375933</td>
+<td align="right">0.0345773</td>
+<td align="right">-1.0872259</td>
+<td align="right">0.2769774</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">stateoregon</td>
+<td align="right">-0.1903294</td>
+<td align="right">0.0340783</td>
+<td align="right">-5.5850549</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statepennsylvania</td>
+<td align="right">-0.0734720</td>
+<td align="right">0.0275762</td>
+<td align="right">-2.6643255</td>
+<td align="right">0.0077334</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">staterhode island</td>
+<td align="right">-0.1146048</td>
+<td align="right">0.0649688</td>
+<td align="right">-1.7639973</td>
+<td align="right">0.0777795</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statesouth carolina</td>
+<td align="right">-0.0519476</td>
+<td align="right">0.0329031</td>
+<td align="right">-1.5788056</td>
+<td align="right">0.1144294</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statesouth dakota</td>
+<td align="right">-0.0041881</td>
+<td align="right">0.0631860</td>
+<td align="right">-0.0662828</td>
+<td align="right">0.9471547</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statetennessee</td>
+<td align="right">-0.0389593</td>
+<td align="right">0.0308458</td>
+<td align="right">-1.2630324</td>
+<td align="right">0.2066229</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statetexas</td>
+<td align="right">-0.0627733</td>
+<td align="right">0.0261882</td>
+<td align="right">-2.3970088</td>
+<td align="right">0.0165576</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">stateutah</td>
+<td align="right">-0.1354381</td>
+<td align="right">0.0367241</td>
+<td align="right">-3.6879941</td>
+<td align="right">0.0002279</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statevermont</td>
+<td align="right">-0.1666881</td>
+<td align="right">0.0575068</td>
+<td align="right">-2.8985795</td>
+<td align="right">0.0037611</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statevirginia</td>
+<td align="right">-0.0852136</td>
+<td align="right">0.0298941</td>
+<td align="right">-2.8505167</td>
+<td align="right">0.0043786</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statewashington</td>
+<td align="right">-0.1649562</td>
+<td align="right">0.0299272</td>
+<td align="right">-5.5119250</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statewashington dc</td>
+<td align="right">-0.1326604</td>
+<td align="right">0.0457000</td>
+<td align="right">-2.9028531</td>
+<td align="right">0.0037103</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statewest virginia</td>
+<td align="right">-0.0198131</td>
+<td align="right">0.0440019</td>
+<td align="right">-0.4502789</td>
+<td align="right">0.6525244</td>
+</tr>
+<tr class="even">
+<td align="left">foreign_score</td>
+<td align="left">statewisconsin</td>
+<td align="right">-0.0840493</td>
+<td align="right">0.0303925</td>
+<td align="right">-2.7654641</td>
+<td align="right">0.0057003</td>
+</tr>
+<tr class="odd">
+<td align="left">foreign_score</td>
+<td align="left">statewyoming</td>
+<td align="right">-0.1872239</td>
+<td align="right">0.0916451</td>
+<td align="right">-2.0429229</td>
+<td align="right">0.0411004</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">(Intercept)</td>
+<td align="right">0.6547938</td>
+<td align="right">0.0210081</td>
+<td align="right">31.1685892</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statealaska</td>
+<td align="right">0.1014562</td>
+<td align="right">0.0761092</td>
+<td align="right">1.3330347</td>
+<td align="right">0.1825672</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statearizona</td>
+<td align="right">0.0103522</td>
+<td align="right">0.0274559</td>
+<td align="right">0.3770478</td>
+<td align="right">0.7061504</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statearkansas</td>
+<td align="right">0.0726062</td>
+<td align="right">0.0360214</td>
+<td align="right">2.0156380</td>
+<td align="right">0.0438790</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statecalifornia</td>
+<td align="right">-0.0510733</td>
+<td align="right">0.0226586</td>
+<td align="right">-2.2540341</td>
+<td align="right">0.0242272</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statecelaware</td>
+<td align="right">0.0613600</td>
+<td align="right">0.0611100</td>
+<td align="right">1.0040920</td>
+<td align="right">0.3153717</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statecolorado</td>
+<td align="right">0.0025350</td>
+<td align="right">0.0271028</td>
+<td align="right">0.0935310</td>
+<td align="right">0.9254846</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">stateconnecticut</td>
+<td align="right">-0.0285081</td>
+<td align="right">0.0324487</td>
+<td align="right">-0.8785604</td>
+<td align="right">0.3796722</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">stateflorida</td>
+<td align="right">-0.0058688</td>
+<td align="right">0.0234172</td>
+<td align="right">-0.2506194</td>
+<td align="right">0.8021163</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">stategeorgia</td>
+<td align="right">0.0132428</td>
+<td align="right">0.0257969</td>
+<td align="right">0.5133505</td>
+<td align="right">0.6077237</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statehawaii</td>
+<td align="right">-0.0153938</td>
+<td align="right">0.0464085</td>
+<td align="right">-0.3317026</td>
+<td align="right">0.7401245</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">stateidaho</td>
+<td align="right">0.0142971</td>
+<td align="right">0.0349243</td>
+<td align="right">0.4093737</td>
+<td align="right">0.6822790</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">stateillinois</td>
+<td align="right">-0.0155492</td>
+<td align="right">0.0243995</td>
+<td align="right">-0.6372762</td>
+<td align="right">0.5239675</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">stateindiana</td>
+<td align="right">0.0000199</td>
+<td align="right">0.0265940</td>
+<td align="right">0.0007464</td>
+<td align="right">0.9994045</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">stateiowa</td>
+<td align="right">0.0222237</td>
+<td align="right">0.0345311</td>
+<td align="right">0.6435860</td>
+<td align="right">0.5198667</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statekansas</td>
+<td align="right">0.0238108</td>
+<td align="right">0.0306453</td>
+<td align="right">0.7769819</td>
+<td align="right">0.4371978</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statekentucky</td>
+<td align="right">0.0638300</td>
+<td align="right">0.0288807</td>
+<td align="right">2.2101275</td>
+<td align="right">0.0271311</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statelouisiana</td>
+<td align="right">0.0420652</td>
+<td align="right">0.0314673</td>
+<td align="right">1.3367906</td>
+<td align="right">0.1813378</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statemaine</td>
+<td align="right">-0.0028707</td>
+<td align="right">0.0456934</td>
+<td align="right">-0.0628261</td>
+<td align="right">0.9499069</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statemaryland</td>
+<td align="right">-0.0428951</td>
+<td align="right">0.0266888</td>
+<td align="right">-1.6072318</td>
+<td align="right">0.1080522</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statemassachusetts</td>
+<td align="right">-0.0698853</td>
+<td align="right">0.0265024</td>
+<td align="right">-2.6369381</td>
+<td align="right">0.0083857</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statemichigan</td>
+<td align="right">-0.0009117</td>
+<td align="right">0.0248066</td>
+<td align="right">-0.0367524</td>
+<td align="right">0.9706836</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">stateminnesota</td>
+<td align="right">0.0274545</td>
+<td align="right">0.0269937</td>
+<td align="right">1.0170723</td>
+<td align="right">0.3091570</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statemississippi</td>
+<td align="right">0.0555236</td>
+<td align="right">0.0334794</td>
+<td align="right">1.6584441</td>
+<td align="right">0.0972762</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statemissouri</td>
+<td align="right">0.0469562</td>
+<td align="right">0.0273336</td>
+<td align="right">1.7178895</td>
+<td align="right">0.0858645</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statemontana</td>
+<td align="right">0.1357325</td>
+<td align="right">0.0519086</td>
+<td align="right">2.6148347</td>
+<td align="right">0.0089477</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statenebraska</td>
+<td align="right">0.0178729</td>
+<td align="right">0.0373186</td>
+<td align="right">0.4789261</td>
+<td align="right">0.6320073</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statenevada</td>
+<td align="right">-0.0029571</td>
+<td align="right">0.0362632</td>
+<td align="right">-0.0815450</td>
+<td align="right">0.9350111</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statenew hampshire</td>
+<td align="right">-0.0421688</td>
+<td align="right">0.0388792</td>
+<td align="right">-1.0846102</td>
+<td align="right">0.2781346</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statenew jersey</td>
+<td align="right">-0.0463062</td>
+<td align="right">0.0265632</td>
+<td align="right">-1.7432472</td>
+<td align="right">0.0813378</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statenew mexico</td>
+<td align="right">0.0044453</td>
+<td align="right">0.0370405</td>
+<td align="right">0.1200124</td>
+<td align="right">0.9044770</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statenew york</td>
+<td align="right">-0.0492278</td>
+<td align="right">0.0239993</td>
+<td align="right">-2.0512203</td>
+<td align="right">0.0402856</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statenorth carolina</td>
+<td align="right">0.0455891</td>
+<td align="right">0.0251829</td>
+<td align="right">1.8103162</td>
+<td align="right">0.0702930</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statenorth dakota</td>
+<td align="right">0.0217062</td>
+<td align="right">0.0508119</td>
+<td align="right">0.4271871</td>
+<td align="right">0.6692572</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">stateohio</td>
+<td align="right">-0.0122844</td>
+<td align="right">0.0245538</td>
+<td align="right">-0.5003046</td>
+<td align="right">0.6168776</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">stateoklahoma</td>
+<td align="right">0.0552637</td>
+<td align="right">0.0305518</td>
+<td align="right">1.8088515</td>
+<td align="right">0.0705203</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">stateoregon</td>
+<td align="right">-0.0335982</td>
+<td align="right">0.0301109</td>
+<td align="right">-1.1158122</td>
+<td align="right">0.2645438</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statepennsylvania</td>
+<td align="right">-0.0138863</td>
+<td align="right">0.0243658</td>
+<td align="right">-0.5699118</td>
+<td align="right">0.5687572</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">staterhode island</td>
+<td align="right">-0.0277938</td>
+<td align="right">0.0574051</td>
+<td align="right">-0.4841694</td>
+<td align="right">0.6282820</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statesouth carolina</td>
+<td align="right">0.0656779</td>
+<td align="right">0.0290725</td>
+<td align="right">2.2591062</td>
+<td align="right">0.0239098</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statesouth dakota</td>
+<td align="right">0.1086437</td>
+<td align="right">0.0558299</td>
+<td align="right">1.9459776</td>
+<td align="right">0.0517005</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statetennessee</td>
+<td align="right">0.0128470</td>
+<td align="right">0.0272547</td>
+<td align="right">0.4713685</td>
+<td align="right">0.6373935</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statetexas</td>
+<td align="right">0.0026787</td>
+<td align="right">0.0231394</td>
+<td align="right">0.1157644</td>
+<td align="right">0.9078429</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">stateutah</td>
+<td align="right">0.0165633</td>
+<td align="right">0.0324487</td>
+<td align="right">0.5104474</td>
+<td align="right">0.6097554</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statevermont</td>
+<td align="right">-0.0127938</td>
+<td align="right">0.0508119</td>
+<td align="right">-0.2517878</td>
+<td align="right">0.8012131</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statevirginia</td>
+<td align="right">0.0181703</td>
+<td align="right">0.0264138</td>
+<td align="right">0.6879073</td>
+<td align="right">0.4915357</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statewashington</td>
+<td align="right">-0.0094022</td>
+<td align="right">0.0264430</td>
+<td align="right">-0.3555662</td>
+<td align="right">0.7221770</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statewashington dc</td>
+<td align="right">-0.1254883</td>
+<td align="right">0.0403796</td>
+<td align="right">-3.1077144</td>
+<td align="right">0.0018936</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statewest virginia</td>
+<td align="right">0.0717062</td>
+<td align="right">0.0388792</td>
+<td align="right">1.8443312</td>
+<td align="right">0.0651804</td>
+</tr>
+<tr class="odd">
+<td align="left">rural_score</td>
+<td align="left">statewisconsin</td>
+<td align="right">0.0289317</td>
+<td align="right">0.0268542</td>
+<td align="right">1.0773626</td>
+<td align="right">0.2813584</td>
+</tr>
+<tr class="even">
+<td align="left">rural_score</td>
+<td align="left">statewyoming</td>
+<td align="right">0.0073490</td>
+<td align="right">0.0809758</td>
+<td align="right">0.0907561</td>
+<td align="right">0.9276892</td>
+</tr>
+</tbody>
+</table>
+<p>Perhaps a map would be more appeasing.</p>
+<pre class="r"><code>library(gridExtra)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;gridExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     combine</code></pre>
+<pre class="r"><code>ANES_state&lt;- ANES_normalized%&gt;%
+  group_by(state)%&gt;%
+  dplyr::summarize(cs=mean(child_score,na.rm=TRUE),ws=mean(women_score,na.rm=TRUE),fs=mean(foreign_score,na.rm=TRUE),rs = mean(rural_score,na.rm=TRUE))
+
+cs&lt;-plot_usmap(data=ANES_state, regions = &quot;states&quot;,values = &quot;cs&quot;)+
+  scale_fill_continuous(low=&quot;palegreen&quot;,high=&quot;tomato&quot;,name=&quot;Authoritarian Child Rearing&quot;)+
+  theme(legend.position = &quot;right&quot;,legend.title=element_text(size=5))
+ws&lt;-plot_usmap(data=ANES_state, regions = &quot;states&quot;,values = &quot;ws&quot;)+
+  scale_fill_continuous(low=&quot;palegreen&quot;,high=&quot;tomato&quot;,name=&quot;Authoritarian Views on Women&quot;)+
+  theme(legend.position = &quot;right&quot;,legend.title=element_text(size=5))
+fs&lt;-plot_usmap(data=ANES_state, regions = &quot;states&quot;,values = &quot;fs&quot;)+
+  scale_fill_continuous(low=&quot;palegreen&quot;,high=&quot;tomato&quot;,name=&quot;Auhtoritarian Views on International Relations&quot;)+
+  theme(legend.position = &quot;right&quot;,legend.title=element_text(size=5))
+rs&lt;-plot_usmap(data=ANES_state, regions = &quot;states&quot;,values = &quot;rs&quot;)+
+  scale_fill_continuous(low=&quot;palegreen&quot;,high=&quot;tomato&quot;,name=&quot;Authoritarian Views on Rural Areas&quot;)+
+  theme(legend.position = &quot;right&quot;,legend.title=element_text(size=5))
+
+grid.arrange(cs,ws,fs,rs,nrow=2)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/map-1.png" width="672" /></p>
+<p>There we go!</p>
+<p>From the plots we see that the views on women are the most authoritarian overall, while views on rural areas are the least. Child rearing is solidly average, while international relations is a mixed bag. The general trend of red-leaning states being more authoritarian and vice versa holds true, though this is certainly worth further analysis as we begin to introduce state-level panel data. Montana sticks out like a sore thumb on the rural areas plot, while Washington and Colorado have the most libertarian views on international relations.</p>
+</div>
+<div id="moving-forward" class="section level1">
+<h1>Moving Forward</h1>
+<p>Panel data is the nectar and ambrosia of political research, and, as such, we expect to introduce ANES time-series data files in the future, while also providing state level electoral data across recent elections. Together, these can provide a more wholistic view of the rise and proliferation of authoritarian views in the United States.</p>
+</div>

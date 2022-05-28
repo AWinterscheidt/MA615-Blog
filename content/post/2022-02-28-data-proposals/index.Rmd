@@ -1,0 +1,40 @@
+---
+title: "Data Proposals"
+author: "A Team Has No Name"
+date: '2022-02-28'
+slug: []
+categories: []
+tags: []
+description: null
+toc: yes
+authors: []
+series: []
+lastmod: '2022-02-28T14:55:09-05:00'
+featuredVideo: null
+featuredImage: null
+---
+
+## Dataset 1
+
+Our first proposed dataset we are interested in working with is the American National Election Survey Data from the 2020 election, perhaps to examine the role authoritarian values played in the electorate in the most recent presidential election. Working with their historical time series data could also help us examine the rise of authoritarianism in the 21st century. ANES data can be found at the [election survey data center](https://electionstudies.org/data-center/2020-time-series-study/). The American National Election Survey is a nationwide survey in the United States taken every four years since 1948. ANES data has played a critical role in political science research over the last seventy-odd years, helping researchers examine long standing trends in the American electorate and providing insight into the ever changing zeitgeist of American politics. For instance, in their most recent 2020 survey, they implemented questions regarding sexual misconduct, voting experience, and more, all meant to capture important debates during the most recent election cycle. The survey is conducted in two parts: before and after the election. The data set in question contains survery results for the 2020 election with 8,280 observations of 1,771 variables. Loading and cleaning the data would involve the selection of 19 key variables measuring voter demographics and authoritarian beliefs and the conversion of negative values (which indicate various types of non-answers) to `NA`s. 
+
+<br/>
+
+The variables in question are *V202064* Party, *V202065x* party, *V201014b* State, *V201511x* education level, *V201502* financial security in the past year,, *V201458x* Religion, *V202117* method of vote, *V202073* who they voted for in the presidential race, and the following authoritarian value measures: *V202266* Independence v. Respect for elders, *V202267* Curiosity v. Manners, *V202268* Obedience v. self-reliance, *V202269* considerate v. well-behaved, *V202270* if more countries should be like America, *V202273x* if America is better or worse than other countries, *V202276x* how well rural areas are treated, *V202279x* how influential rural areas are, *V202282x* how respected rural areas are, *V202286x* how well working mothers bond with children, *V202290x* if it is better for a man to work and a women to stay home, *V202291* if women wanting equality want special treatment, and *V202292* if women complaining about equality causes more problems than they solve.
+
+## Dataset 2
+
+Our second dataset specifically focuses on Coal Production in the United States that goes considerably far back (to the 1990s). Over the span of 30 years, the United States Energy Information Administration has usually documented all sorts of statistics on the production of certain energy resources through numerous audits. The data can be found at their [website](https://www.eia.gov/coal/production/quarterly/). Generally speaking this data is a time series data as it focuses on quarterly production, and through this general website/page one can find numerous data sets on the specific kinds of coal production, and not just a general overview of how much has been produced over the years. Generally speaking, the data is very easy to comprehend and clean, it would be a matter of 
+visualizing it in such a way to truly capture the gravity of certain trends. 
+
+<br/>
+
+This sort of data analysis/visualization would be important as coal has played a traditional role in powering the United States, even if it is declining in popularity and usage. A project oriented around this particular data sets would be quite useful for environmental policy experts, in a nationwide sense it would be good to see what kinds of coal production is still being utilized in certain regions of the country, not to mention reflect on the progress to not become so reliant on coal power.
+
+## Dataset 3
+
+Our third data set is a comprehensive over view of global inflation from 1960 to 2020. From the [World Bank](https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG), the dataset includes annual inflation rates measured from consumer pricesfor 265 countries with varying levels of completeness (that is, certain countries lack data in the earliest years while others lack data for the latest years). The World Bank is a multi-national, multi-institutional organization focused on studying and aiding poverty, especially in developing countries. They aggregate various economic and demographic data from around the world into comprehensive comparative datasets.
+
+<br/>
+
+The primary interest in this data is comparing pandemic-era inflaiton across multiple nations In order to do this, we'd need to append the provided data with more recent data from 2021, the height of pandmeic inflation, and include additional, exogenous factors that may have affected the CPIs. Much debate around inflation centered around the effect of monetary policy, and while the United States did have significantly larger increases in money supply and spending than other other, similar countries during the pandemic, those other nations had only had marginally lower inflation rates. Understanding the role that inflation expectations and trajectory, supply chain constraints, the Russian-OPEC (oil) price war, the dramatic and unprecedented changes in the labor market in the US -- labor changes in other countries are worth their own explorations -- the pandemic *per se*, and other exogenous factors played on inflation is important in deciphering the validity of Modern Monetary Theory and its effects on real economies in the (post?/hyper?/non?)-Keynesian^[Any economist worth their salt doesn't know what model to trust anymore, not that they ever should have fully trusted one in the first place.] world. A cross-region comparative study of pandemic-era economic indicators would be an important step in the larger body of research.

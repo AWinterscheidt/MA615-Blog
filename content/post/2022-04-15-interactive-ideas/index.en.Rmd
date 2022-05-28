@@ -1,0 +1,23 @@
+---
+title: "Interactive Ideas"
+author: "A Group Has No Name"
+date: '2022-04-15'
+slug: []
+categories: []
+tags: []
+description: ~
+toc: yes
+authors: []
+series: []
+lastmod: '2022-04-15T18:10:18-04:00'
+featuredVideo: ~
+featuredImage: ~
+---
+
+# Interactive Idea
+
+With our interactive we plan to have users select a state of their choosing
+and allow them to explore different authoritarianism variables within that state. These variables could be selected from a list; such variables could
+include "nationalism", "party preference", etc. Each variable could include
+a short description and showcase what questions form the variable. For instance
+a question referring to nationalism may be- "Better if rest of world more like America". By selecting different variables the user can identify trends. We will also aim to have the user isolate a specific year thus showcasing the trends in a given state at any time frame, excluding years we don't have data for.

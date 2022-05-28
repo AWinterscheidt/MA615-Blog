@@ -1,0 +1,13 @@
+name: state_app
+title:
+username:
+account: nimuezor
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6282607
+bundleId: 5896693
+url: https://nimuezor.shinyapps.io/state_app/
+when: 1652298560.904
+lastSyncTime: 1652298560.90402
+asMultiple: FALSE
+asStatic: FALSE

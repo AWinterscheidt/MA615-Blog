@@ -1,0 +1,47 @@
+---
+title: 'Tentative Thesis'
+author: R package build
+date: '2022-04-29'
+slug: []
+categories: []
+tags: []
+description: ~
+toc: yes
+authors: []
+series: []
+lastmod: '2022-04-29T20:40:53-04:00'
+featuredVideo: ~
+featuredImage: ~
+---
+
+As we examine the relationship between authoritarianism and elections from 2000 to 2020, we expect to find that over the course of the last six elections, authoritarianism has been on the rise. Provided the earlier evidence on the partisan divide over authoritarianism we expect this trend correlates, at the state level, with electoral success for Republican candidates for President. That is, states won by Republican presidential candidates are more likely to have a higher authoritarian score based on ANES survey data. 
+
+```{r setup, include = FALSE}
+
+source(here::here("static","load_and_clean_data.R"))
+
+```
+
+Looking in those states where Republican candidates had the majority of votes, we see the following distribution across previous elections:
+
+```{r rep}
+MIT_State%>%
+  subset(republican>democrat)%>%
+  ggplot()+
+  geom_density(aes(x=score,color = year))
+```
+
+
+In contrast, for Democrat favored states we see the following distribution:
+
+
+```{r dem}
+MIT_State%>%
+  subset(republican<democrat)%>%
+  ggplot()+
+  geom_density(aes(x=score,color = year))
+```
+
+From these, we see evidence that, contrary to theory, authoritarianism does not follow a clear trend by year; thogh it does agree that republicans are more authoritarian than democrats and their score change between each election cycle appears to be lower.
+
+In the final steps of this project we will include a panel regression of margin on score with year and state fixed effects. This will allow us to narrow down the effect of authoritarianism.
